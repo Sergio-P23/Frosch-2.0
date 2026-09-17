@@ -1,0 +1,13 @@
+<audio ng-src="{{ 's_jugador.ogg'  | translateAudio }}" autoplay="autoplay"></audio>
+<div class="view fondo-rana font-cs">
+
+    <div class="seleccionEquipos">
+        <div class="grande centrar">{{ 'ESCOGE_EQUIPOS' | translate }}</div>
+        <botonera max="3" callback="callback" seleccionado="seleccionado" keymap="config.configuracion.keymap">
+            <opcion opcion="1">{{'INDIVIDUAL' | translate }}</opcion>
+            <opcion opcion="2">{{'EQUIPOS2' | translate }}</opcion>
+            <opcion opcion="3">{{'EQUIPOS3' | translate }}</opcion>
+
+        </botonera>
+    </div>
+</div>

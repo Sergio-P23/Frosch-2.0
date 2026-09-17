@@ -1,0 +1,6 @@
+components
+bin
+node_modules
+cache
+.idea
+assets/videos/*.webm

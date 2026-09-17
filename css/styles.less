@@ -1,0 +1,630 @@
+@font-face {
+  font-family: cs;
+  src: url("../assets/fonts/cs_regular.ttf");
+}
+
+@font-face {
+  font-family: sofachrome;
+  src: url("../assets/fonts/sofachrome_rg.ttf");
+}
+
+@fondo-principal: rgba(42, 61, 39, 0.8);
+@color-contraste: #d89e0e;
+@blanco: #eee;
+@fondo-suave: @fondo-principal + 30;
+@size: 100% 100%;
+
+.cuadrado(@ancho, @max-alto) {
+  height: @ancho;
+  width: @ancho;
+  line-height: @ancho;
+  max-width: @max-alto;
+  max-height: @max-alto;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  font-size: 16px;
+  -webkit-user-select: none;
+  overflow: hidden; /** no scrollbars */
+  background-color: black;
+
+  .espacio {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -50vh 0 0 -50vw;
+  }
+}
+
+.view {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fondo-principal {
+  background-color: @fondo-principal;
+}
+
+.fondo-laguna {
+  background: url("../assets/img/fondo-laguna.png") no-repeat /*,
+  url("../assets/img/fondo-rana.png") no-repeat,
+  url("../assets/img/fondo-rana-premio.png") no-repeat,
+  url("../assets/img/fondo-monona.png") no-repeat,
+  url("../assets/img/fondo-blanqueadas.png") no-repeat*/;
+  background-size: @size;
+}
+
+.fondo-rana {
+  background: url("../assets/img/fondo-rana.png") no-repeat;
+  background-size: @size;
+}
+
+.fondo-rana-premio {
+  background: url("../assets/img/fondo-rana-premio.png") no-repeat;
+  background-size: @size;
+}
+
+.fondo-ranita-premio {
+  background: url("../assets/img/fondo-ranita-premio.png") no-repeat;
+  background-size: @size;
+}
+
+.fondo-monona {
+  background: url("../assets/img/fondo-monona.png") no-repeat;
+  background-size: @size;
+}
+
+.fondo-blanqueadas {
+  background: url("../assets/img/fondo-blanqueadas.png") no-repeat;
+  background-size: @size;
+}
+
+.fondo-blanqueadas-out {
+  background: url("../assets/img/fondo-blanqueadas-out.png") no-repeat;
+  background-size: @size;
+}
+
+.grande {
+  font-size: 7.8vw;
+  text-shadow: 0 0 1vw rgba(255, 255, 255, 1), 0 0 2vw rgba(255, 255, 255, 1), 0 0 3vw rgba(255, 255, 255, 1), 0 0 4vw #33ff38, 0 0 7vw #a1ff7d, 0 0 8vw #61ff6d, 0 0 10vw #89ff3e;
+  line-height: 11.7vh;
+}
+
+.mediano {
+  font-size: 5vw;
+  text-shadow: 0 0 1vw rgba(255, 255, 255, 1), 0 0 2vw rgba(255, 255, 255, 1), 0 0 3vw rgba(255, 255, 255, 1), 0 0 4vw #eaff47, 0 0 7vw #ff8554, 0 0 8vw #61ff6d, 0 0 10vw #89ff3e;
+  line-height: 5vw;
+}
+
+.pequeno {
+  font-size: 4vw;
+  text-shadow: 0 0 1vw rgba(255, 255, 255, 1), 0 0 2vw rgba(255, 255, 255, 1), 0 0 3vw rgba(255, 255, 255, 1), 0 0 4vw #eaff47, 0 0 7vw #ff8554, 0 0 8vw #61ff6d, 0 0 10vw #89ff3e;
+  line-height: 3vw;
+}
+
+.centrar {
+  text-align: center;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.ranas-esquina {
+  height: 62.5vh;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  &.derecha {
+    left: auto;
+    right: 0;
+  }
+}
+
+.font-cs {
+  font-family: cs;
+}
+
+.comenzar {
+  padding-top: 10%;
+}
+
+.presione {
+  padding-top: 5%;
+}
+
+.colorContraste {
+  color: @color-contraste;
+}
+
+button {
+  display: inline-block;
+  box-sizing: content-box;
+  width: 39.1vw;
+  line-height: 4vw;
+  cursor: pointer;
+  padding: 1.3vh 1.6vw;
+  border: 1px solid #018dc4;
+  border-radius: 8vw;
+  font-family: cs;
+  font-size: 4vw;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  text-overflow: clip;
+  background: #e8c209;
+  box-shadow: 0.4vh 0.2vw 0.3vh 0 rgba(0, 0, 0, 0.2);
+  text-shadow: 1px -1px 0 rgba(15, 73, 168, 0.66);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  margin: 3.9vh 2.3vw 3.9vh 2.9vw;
+}
+
+button.seleccionado {
+  background: #da8458;
+}
+
+.seleccionEquipos {
+  padding-top: 5%;
+  .botones {
+    padding-left: 15%;
+    button {
+      margin-top: 2vh;
+    }
+  }
+}
+
+.seleccionPuntos {
+  padding-top: 10%;
+  padding-left: 1%;
+}
+
+.seleccionJugadores {
+  padding-top: 5%;
+  padding-left: 1%;
+}
+
+.columnas-2 {
+  .botones {
+    -webkit-column-count: 2;
+  }
+}
+
+.columna {
+  float: left;
+  height: 93%;
+
+  margin: 1.3vh 0.8vw;
+  &.jugadores {
+    width: 25vw;
+    padding-top: 1.3vh;
+  }
+  &.monedas {
+    width: 30vw;
+    .fondo-principal;
+    border-radius: 0.8vw;
+    padding-top: 2.6vh;
+    padding-left: 1.6vw;
+    padding-right: 2vh;
+  }
+  &.orificios {
+    width: 36.5vw;
+  }
+}
+
+video {
+  width: 100%;
+}
+
+.seleccionBlanqueada {
+
+  padding-top: 5%;
+  .botones {
+    width: 39.1vw;
+    button {
+      margin: 2.6vh 2.3vw 2vh 9vw;
+    }
+  }
+}
+
+.seleccionJugadores .jugadores {
+  progress {
+    /* Important Thing */
+    -webkit-appearance: none;
+    height: 33.3vh;
+    width: 12.7vw;
+  }
+
+  progress::-webkit-progress-bar {
+    background: transparent url("../assets/img/desactivado.png");
+    background-size: 12.7vw 33.3vh;
+  }
+
+  progress::-webkit-progress-value {
+    background: transparent url("../assets/img/activado.png");
+    background-size: 12.7vw 33.3vh;
+  }
+}
+
+.jugador {
+  height: 15vh;
+  margin: 0.4vw 0.7vh;
+  clear: left;
+
+  .avatar {
+    height: 15vh;
+    float: left;
+    position: relative;
+    top: -1.3vh;
+    width: 5.72vw;
+  }
+
+  .ronda {
+    top: -4.6vh;
+    left: -19.05vw;
+    float: right;
+    position: relative;
+    width: 5vw;
+    text-align: center;
+  }
+
+  .datos {
+
+    padding-left: 8vw;
+    padding-top: 0.4vh;
+
+    &.activo {
+      .fondo-principal;
+      width: 16.5vw;
+
+      .titulo {
+        color: #d89e0e;
+        text-shadow: 0.4vh -0.2vw 0 rgba(57, 38, 6, 0.66) !important;
+      }
+
+      padding-right: 1.9vw;
+      border-top-left-radius: 1.3vh;
+      border-bottom-left-radius: 1.3vh;
+
+      box-shadow: 0 0 2.6vh 0.3vw rgba(14, 14, 15, 0.91);
+    }
+
+    .titulo {
+
+      font-size: 2.3vw;
+      margin: 0.4vw 0.7vh;
+      line-height: 2.1vh;
+      color: @blanco;
+      text-shadow: 0.4vh -0.4vh 0 rgba(15, 73, 168, 0.66);
+    }
+    progress {
+      width: 16.4vw;
+      height: 3.9vh;
+      -webkit-appearance: none;
+    }
+    progress::-webkit-progress-bar {
+      background-color: @blanco;
+    }
+
+    progress::-webkit-progress-value {
+      background-color: @color-contraste;
+    }
+
+    .puntaje {
+      position: relative;
+      top: -7.5vh;
+      font-size: 3.5vw;
+      line-height: 3.9vh;
+      float: left;
+      padding-left: 0.4vw;
+    }
+
+    .blanqueadas {
+      text-align: right;
+      overflow: hidden;
+      height: 4.2vh;
+      img {
+        height: 2.6vh;
+        margin: 0.4vw 0.7vh;
+      }
+      .blanqueadasNumero {
+        font-size: 1.9vw;
+      }
+    }
+  }
+}
+
+.monedas {
+  .datos {
+
+    text-align: center;
+    border-top: 0.3vh solid @blanco;
+
+    > div {
+      width: 50%;
+      float: left;
+    }
+
+    .titulo {
+      font-size: 2.3vw;
+      color: @blanco;
+      line-height: 3.4vh;
+    }
+
+    .numero {
+      font-size: 3.9vw;
+      line-height: 4.6vh;
+      color: @color-contraste;
+    }
+  }
+
+  .argollas {
+    .argolla {
+      .cuadrado(8.2vw, 13.7vh);
+      margin: 0.4vw 0.5vh;
+      font-size: 3.1vw;
+    }
+  }
+
+  .tiros {
+
+    margin-top: 3.9vh;
+    display: flex;
+    flex-direction: column-reverse;
+    .tiro {
+      padding-top: 1.3vh;
+      clear: both;
+
+      .titulo, .numero {
+        color: #aaa;
+      }
+    }
+  }
+
+  overflow: hidden;
+}
+
+.orificios {
+  .meta {
+    span {
+      line-height: 3.4vh;
+      font-size: x-large;
+    }
+  }
+
+  .argollas {
+    margin-top: 2.6vh;
+    .argolla {
+      .cuadrado(10.2vw, 16.9vh);
+      margin: 0.4vw 0.5vh;
+      font-size: 3.9vw;
+
+      &.rana, &.ranita {
+        background-color: @color-contraste;
+        color: darkred;
+      }
+    }
+
+  }
+}
+
+.blanqueado {
+  .rana-label {
+    top: 60%;
+    left: 7%;
+
+  }
+  img {
+    padding-top: 4%;
+    padding-left: 19%;
+  }
+}
+
+.argolla {
+  border: solid 0.4vw white;
+  background: @blanco;
+  border-radius: 100%;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: @fondo-suave;
+  box-shadow: 0 0 1.2vw #777, inset 0 0 1.2vw 0.4vw #333;
+
+  &.inactiva {
+    opacity: 0.3;
+    background: #aaa;
+    box-shadow: inset 0 0 0 0.4vw #333;
+
+  }
+
+  &.rotar {
+    -webkit-transform: rotateY(360deg);
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.rana-label {
+  position: absolute;
+  left: 15%;
+  top: 30%;
+}
+
+.fondo-monona .monona-label {
+  background-size: contain;
+  width: 75.5vw;
+  height: 100vh;
+  -webkit-transform: rotate(-24deg);
+  padding-top: 39.1vh;
+  padding-left: 27.4vw;
+  background: url("../assets/img/monona-explosion.png") no-repeat;
+  background-size: @size;
+  position: absolute;
+  top: 6.5vh;
+  left: 7.8vw;
+}
+
+.finChico {
+  padding-top: 2%;
+
+  .mediano {
+    font-size: 3.1vw;
+    line-height: 5.2vh;
+  }
+
+  ul {
+    li {
+      list-style-type: none;
+
+      .jugador {
+        float: left;
+        height: 5.2vh;
+        clear: left;
+        padding-left: 10%;
+      }
+
+      .chicosPerdidos {
+        float: right;
+        padding-right: 40%;
+        clear: right;
+        color: @color-contraste;
+        font-size: 150%;
+      }
+
+    }
+  }
+
+  .continuar {
+    padding-right: 20%;
+    padding-left: 10%;
+    padding-top: 2%;
+
+    .botones {
+      padding-left: 10%;
+      button {
+        width: 11.7vw;
+        margin: 0.8vw 1.3vh;
+      }
+    }
+  }
+
+}
+
+.creditos {
+  position: absolute;
+  z-index: 100;
+  margin: 0.4vw 0.7vh;
+  right: 0;
+  font-size: 2.3vw;
+  width: 6.3vw;
+  .excedente {
+    margin-top: 0.4vh;
+  }
+}
+
+.ganaste {
+
+  > .grande {
+    padding-top: 10%;
+  }
+
+}
+
+button.inicio {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+}
+
+.primer-ganador {
+  background: url('../assets/img/estrella.png') no-repeat;
+  background-size: 2.5vw 4.2vh;
+  width: 2.5vw;
+  height: 4.2vh;
+  display: inline-block;
+  margin-left: -5.2vh;
+}
+
+/** coin */
+.coin p {
+  position: absolute;
+  font-size: 2.2vw;
+  z-index: 700;
+  top: -3vh;
+  left: 1.3vw;
+}
+
+.coin.silver p {
+  color: rgba(160, 160, 160, 1);
+}
+
+.coin {
+  cursor: pointer;
+  content: "";
+  display: inline-block;
+  position: relative;
+  margin: 0.7vh 5% 0.7vh 0.4vw;
+  top: -0.8vh;
+  border-radius: 3.9vw;
+  z-index: 500;
+  float: left;
+  box-shadow: 0.3vh 0.2vw 0.3vh 0.1vw rgba(0, 0, 0, .1);
+}
+
+.coin:after {
+  content: "";
+  width: 3.3vw;
+  height: 3.3vw;
+  display: block;
+  top: 0.5vh;
+  left: 0.3vw;
+  position: absolute;
+  border-radius: 3.9vw;
+  z-index: 600;
+}
+
+.coin:before {
+  content: "";
+  width: 3.9vw;
+  height: 3.9vw;
+  display: block;
+  position: absolute;
+  border-radius: 3.9vw;
+  z-index: 500;
+}
+
+.coin:hover {
+  top: -1px;
+  transition: all .5s ease-in-out;
+  box-shadow: 0 0 0.4vw 0.1vw rgba(0, 0, 0, .2);
+}
+
+.silver {
+  background: linear-gradient(45deg, rgba(160, 160, 160, 1) 0%, rgba(232, 232, 232, 1) 56%);
+}
+
+.silver:before {
+  background: linear-gradient(45deg, rgba(181, 181, 181, 1) 0%, rgba(252, 252, 252, 1) 56%, rgba(232, 232, 232, 1) 96%);
+  border: 0.1vw solid rgba(181, 181, 181, 1);
+}
+
+.silver:after {
+  background: linear-gradient(45deg, rgba(181, 181, 181, 1) 0%, rgba(252, 252, 252, 1) 56%, rgba(232, 232, 232, 1) 96%);
+  border: 0.1vw solid rgba(255, 255, 255, 0.3);
+  border-right-color: rgba(160, 160, 160, 0.5);
+  border-bottom-color: rgba(160, 160, 160, 0.3);
+  box-shadow: inset 0px 0px 2px 2px rgba(150, 150, 150, .05);
+}
+
+.silver:hover:after {
+  background: linear-gradient(45deg, rgba(181, 181, 181, 1) 0%, rgba(252, 252, 252, 1) 38%, rgba(232, 232, 232, 1) 96%);
+  border: 0.1vw solid rgba(255, 255, 255, 0.3);
+  border-right-color: rgba(160, 160, 160, 0.5);
+  border-bottom-color: rgba(160, 160, 160, 0.3);
+  box-shadow: inset 0 0 0.2vw 0.2vw rgba(150, 150, 150, .05);
+}

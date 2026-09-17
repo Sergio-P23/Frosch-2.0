@@ -1,0 +1,17 @@
+<audio ng-src="{{ 's_puntaje.ogg'  | translateAudio }}" autoplay="autoplay"></audio>
+<div class="view fondo-laguna font-cs">
+    <div class="seleccionPuntos columnas-2">
+        <div class="grande centrar">{{ 'ESCOGE_PUNTAJE' | translate }}</div>
+
+        <botonera max="6" callback="callback" seleccionado="seleccionado" keymap="config.configuracion.keymap">
+            <opcion ng-repeat="puntaje in puntajes" opcion="{{$index + 1}}">{{puntaje}} {{'PUNTOS' | translate }}
+                <div class="coin silver" ng-repeat="i in getNumber(config.configuracion.creditosPorPuntaje[puntaje]) track by $index"><p>$</p></div>
+
+            </opcion>
+
+        </botonera>
+        <div class="grande centrar">{{"PRESIONE" | translate}} <strong>{{"INICIAR" | translate}}</strong></div>
+
+    </div>
+
+</div>

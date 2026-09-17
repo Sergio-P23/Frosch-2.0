@@ -1,0 +1,20 @@
+<audio src="assets/sounds/blanqueado.ogg" preload="true" autoplay="true"></audio>
+<div ng-init="continuaJuego = !jugador.perdio"
+     class="view font-cs blanqueado" ng-class="{
+        'fondo-blanqueadas': continuaJuego,
+        'fondo-blanqueadas-out': !continuaJuego}">
+    <div class="centrar grande rana-label">
+        {{"BLANQUEADO" | translate}}<br>
+        <span ng-if="continuaJuego && config.blanqueada">
+            {{"TE_QUEDAN_BLANQUEADAS" | translateReplace:{ numBlanqueadas: jugador.blanqueadasRestantes()} }}
+        </span>
+
+         <span ng-if="!continuaJuego">
+            {{"PERDISTE" | translate }}
+             <audio ng-src="{{ 'gameover.ogg'  | translateAudio }}" autoplay="autoplay"></audio>
+        </span>
+    </div>
+    <img src="assets/img/rana-blanqueada.png" class="centrar" ng-if="continuaJuego"/>
+
+</div>
+
