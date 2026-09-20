@@ -16,10 +16,13 @@ Frosch, software para juego de rana electrónica o rana digital.
 
 Para configurar edite el archivo `config/config.json`
 
-**Combinaciones de Teclas Fijas:**
+**Combinaciones de Teclas Fijas (3 Botones: ATRAS, SIGUIENTE, ENTER):**
 
- - `s s s` termina el programa y sale al sistema operativo
- - `arriba abajo arriba abajo arriba abajo enter` vuelve al menú inicial
+ - `left left left` termina el programa y sale al sistema operativo (también cancela y vuelve a inicio en juego)
+ - `left left` (doble pulsación de ATRAS) vuelve a la pantalla anterior antes de iniciar el juego
+ - `right` (SIGUIENTE) avanza entre opciones en los menús y cambia de jugador en el juego
+ - `left` (ATRAS) retrocede entre opciones en los menús
+ - `enter` (ENTER) confirma la selección
  - `c` inserta crédito
 
 **Cómo jugar**

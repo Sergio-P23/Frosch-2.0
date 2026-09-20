@@ -45,8 +45,8 @@
   "monona": true,
   "mononaSinRepetirOrificio": true,
   "keymap": {
-    "arriba": "up",
-    "abajo": "down",
+    "siguiente": "right",
+    "atras": "left",
     "enter": "enter",
     "orificio1": "0",
     "orificio2": ".",

@@ -55,26 +55,57 @@ angular.module('Frosch')
         };
 
         var keymap = config.configuracion.keymap;
-        //para poder terminar temprano el juego
+        var teclaAtras = keymap.atras || 'left';
+        var teclaSiguiente = keymap.siguiente || 'right';
+
+        var ultimoAtras = 0;
+        var toquesAtras = 0;
+
+        function manejarAtras() {
+            var ahora = Date.now();
+            if (ahora - ultimoAtras < 600) {
+                toquesAtras++;
+            } else {
+                toquesAtras = 1;
+            }
+            ultimoAtras = ahora;
+
+            if (toquesAtras === 2) {
+                $state.go('jugar.chico.seleccionPuntos');
+                return;
+            } else if (toquesAtras >= 3) {
+                toquesAtras = 0;
+                $state.go('inicio');
+                return;
+            }
+
+            if ($rootScope.creditos > 0) {
+                $rootScope.creditosExcedente++;
+                $rootScope.creditos--;
+                $rootScope.guardarCreditos();
+            }
+        }
+
+        // Navegación con teclado
         hotkeys.bindTo($scope)
             .add({
-                combo: keymap.arriba + ' ' + keymap.abajo + ' ' + keymap.arriba + ' ' + keymap.abajo + ' ' + keymap.arriba + ' ' + keymap.abajo + ' ' + keymap.enter,
+                combo: teclaAtras + ' ' + teclaAtras,
+                callback: function () {
+                    $state.go('jugar.chico.seleccionPuntos');
+                }
+            })
+            .add({
+                combo: teclaAtras + ' ' + teclaAtras + ' ' + teclaAtras,
                 callback: function () {
                     $state.go('inicio');
                 }
             })
             .add({
-                combo: keymap.arriba,
-                callback: function(){
-                    if($rootScope.creditos > 0) {
-                        $rootScope.creditosExcedente++;
-                        $rootScope.creditos--;
-                        $rootScope.guardarCreditos();
-                    }
-                }
+                combo: teclaAtras,
+                callback: manejarAtras
             })
             .add({
-                combo: keymap.abajo,
+                combo: teclaSiguiente,
                 callback: function(){
                     if($rootScope.creditosExcedente > 0) {
                         $rootScope.creditosExcedente--;
@@ -82,7 +113,7 @@ angular.module('Frosch')
                         $rootScope.guardarCreditos();
                     }
                 }
-            })
+            });
 
 
     });

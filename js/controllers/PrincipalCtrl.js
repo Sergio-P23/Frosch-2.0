@@ -53,21 +53,19 @@ angular.module('Frosch')
                 return; //por ahora no se cambia de turno en notificaciones
 
             try {
-                this.chico.cambiarTurno(turno);
+                chico.cambiarTurno(turno);
                 $timeout(function () {
                     if(!chico.termino)
                         cambioJugadorAudio.play();
-                }, this.chico.jugadorAnterior.blanqueado ? 3000 : 0);
+                }, chico.jugadorAnterior && chico.jugadorAnterior.blanqueado ? 3000 : 0);
 
-                if (this.chico.jugadorAnterior.blanqueado) {
+                if (chico.jugadorAnterior && chico.jugadorAnterior.blanqueado) {
                     $state.go('jugar.chico.principal.blanqueado');
                 }
 
-
-
             }
             catch (e) {
-                console.error(e)
+                console.error(e);
             }
         };
 
@@ -94,7 +92,18 @@ angular.module('Frosch')
             }
         };
 
-        // Hotkeys para cambios de turno
+        // Hotkey para siguiente jugador con botón SIGUIENTE (right)
+        var teclaSiguiente = keymap.siguiente || 'right';
+        var teclaAtras = keymap.atras || 'left';
+
+        hotkeysBound.add({
+            combo: teclaSiguiente,
+            callback: function () {
+                $scope.cambiarTurno(true);
+            }
+        });
+
+        // Hotkeys para cambios de turno individuales
         for (var i = 1; i <= 6; i++) {
             hotkeysBound.add({
                 combo: keymap['jugador' + i],
@@ -102,13 +111,13 @@ angular.module('Frosch')
             })
         }
 
-        //para poder terminar temprano el juego
+        // Salir/cancelar juego con 3 veces atras (left left left)
         hotkeysBound
             .add({
-                combo: keymap.arriba + ' ' + keymap.abajo + ' ' + keymap.arriba + ' ' + keymap.abajo + ' ' + keymap.arriba + ' ' + keymap.abajo + ' ' + keymap.enter,
+                combo: teclaAtras + ' ' + teclaAtras + ' ' + teclaAtras,
                 callback: function () {
                     $state.go('inicio');
                 }
-            })
+            });
 
     });

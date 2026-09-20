@@ -10,8 +10,10 @@ angular.module('Frosch')
         $scope.callback = {
             configurar: function configurar(opcion) {
                 config.puntos = config.configuracion.puntajes[opcion - 1];
-                $state.go('jugar.chico.seleccionJugadores')
-
+                $state.go('jugar.chico.seleccionJugadores');
+            },
+            volver: function volver() {
+                $state.go('jugar.chico.seleccionBlanqueada');
             }
         };
 

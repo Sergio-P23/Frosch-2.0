@@ -178,17 +178,86 @@ angular.module('Frosch', ['ui.router', 'translate', 'cfp.hotkeys', 'com.2fdevs.v
 
   var monedaAudio = new audio('moneda.ogg');
 
+  function salirApp() {
+    console.log('Saliendo de la aplicacion (salirApp)...');
+
+    // 1. NW.js
+    try {
+      if (typeof nw !== 'undefined' && nw.App && nw.App.quit) {
+        nw.App.quit();
+        return;
+      }
+    } catch (e) {}
+
+    try {
+      if (typeof require !== 'undefined') {
+        var gui = require('nw.gui');
+        gui.App.quit();
+        return;
+      }
+    } catch (e) {}
+
+    // 2. Capacitor Android
+    try {
+      if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App && window.Capacitor.Plugins.App.exitApp) {
+        window.Capacitor.Plugins.App.exitApp();
+        return;
+      }
+    } catch (e) {}
+
+    // 3. Cordova / PhoneGap Android
+    try {
+      if (navigator.app && navigator.app.exitApp) {
+        navigator.app.exitApp();
+        return;
+      }
+    } catch (e) {}
+
+    // 4. Android WebView interface
+    try {
+      if (window.Android && window.Android.exitApp) {
+        window.Android.exitApp();
+        return;
+      }
+    } catch (e) {}
+
+    // 5. Navegador
+    try {
+      window.close();
+    } catch (e) {}
+
+    // 6. Notificacion en pruebas de navegador si el tab no se puede cerrar por seguridad
+    alert('Saliendo del juego (Exit)...');
+  }
+
+  // Listener global directo para garantizar la captura de 3 pulsaciones rapidas de LEFT
+  var leftPressCount = 0;
+  var leftPressTimer = null;
+
+  window.addEventListener('keydown', function (e) {
+    var key = e.key || '';
+    var code = e.keyCode || e.which;
+    if (key === 'ArrowLeft' || code === 37 || key === 'left') {
+      leftPressCount++;
+      clearTimeout(leftPressTimer);
+
+      if (leftPressCount >= 3) {
+        leftPressCount = 0;
+        salirApp();
+      } else {
+        leftPressTimer = setTimeout(function () {
+          leftPressCount = 0;
+        }, 1000);
+      }
+    } else {
+      leftPressCount = 0;
+    }
+  }, true);
+
   hotkeys.bindTo($rootScope)
     .add({
-      combo: 's s s',
-      callback: function () {
-        // Cargar node-webkit
-        var gui = require('nw.gui');
-
-        // Salir
-        gui.App.quit();
-
-      }
+      combo: 'left left left',
+      callback: salirApp
     })
     .add({
       combo: 'c',
