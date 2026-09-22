@@ -54,11 +54,7 @@ body {
 }
 
 .fondo-laguna {
-  background: url("../assets/img/fondo-laguna.png") no-repeat /*,
-  url("../assets/img/fondo-rana.png") no-repeat,
-  url("../assets/img/fondo-rana-premio.png") no-repeat,
-  url("../assets/img/fondo-monona.png") no-repeat,
-  url("../assets/img/fondo-blanqueadas.png") no-repeat*/;
+  background: url("../assets/img/fondo-laguna.png") no-repeat;
   background-size: @size;
 }
 
@@ -223,7 +219,6 @@ video {
 }
 
 .seleccionBlanqueada {
-
   padding-top: 5%;
   .botones {
     width: 39.1vw;
@@ -235,7 +230,6 @@ video {
 
 .seleccionJugadores .jugadores {
   progress {
-    /* Important Thing */
     -webkit-appearance: none;
     height: 33.3vh;
     width: 12.7vw;
@@ -275,7 +269,6 @@ video {
   }
 
   .datos {
-
     padding-left: 8vw;
     padding-top: 0.4vh;
 
@@ -296,7 +289,6 @@ video {
     }
 
     .titulo {
-
       font-size: 2.3vw;
       margin: 0.4vw 0.7vh;
       line-height: 2.1vh;
@@ -342,7 +334,6 @@ video {
 
 .monedas {
   .datos {
-
     text-align: center;
     border-top: 0.3vh solid @blanco;
 
@@ -373,7 +364,6 @@ video {
   }
 
   .tiros {
-
     margin-top: 3.9vh;
     display: flex;
     flex-direction: column-reverse;
@@ -418,7 +408,6 @@ video {
   .rana-label {
     top: 60%;
     left: 7%;
-
   }
   img {
     padding-top: 4%;
@@ -440,7 +429,6 @@ video {
     opacity: 0.3;
     background: #aaa;
     box-shadow: inset 0 0 0 0.4vw #333;
-
   }
 
   &.rotar {
@@ -495,7 +483,6 @@ video {
         color: @color-contraste;
         font-size: 150%;
       }
-
     }
   }
 
@@ -512,7 +499,6 @@ video {
       }
     }
   }
-
 }
 
 .creditos {
@@ -528,11 +514,9 @@ video {
 }
 
 .ganaste {
-
   > .grande {
     padding-top: 10%;
   }
-
 }
 
 button.inicio {
@@ -630,8 +614,7 @@ button.inicio {
 }
 
 /* =====================================================
-   Pantalla de inicio - estilo bar / discoteca
-   Todo scopeado a .inicio-club para no afectar otras vistas
+   Pantalla de inicio - estilo synthwave / arcade bar
    ===================================================== */
 
 @club-magenta: #ff2d95;
@@ -644,13 +627,13 @@ button.inicio {
   background: radial-gradient(120% 90% at 50% 0%, #2a0b4e 0%, #160726 45%, #06020d 100%);
 }
 
-/* Lineas neon diagonales que cruzan el fondo en movimiento */
+/* Lineas neon diagonales */
 .club-neon {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 74%;
+  height: 100%;
   overflow: hidden;
   pointer-events: none;
   z-index: 1;
@@ -714,19 +697,19 @@ button.inicio {
   100% { transform: translateX(30%) rotate(-24deg); opacity: 0; }
 }
 
-/* Grilla retro en perspectiva que se desplaza hacia el frente */
+/* Grilla retro en perspectiva */
 .club-grid {
   position: absolute;
   left: -25%;
   bottom: 0;
   width: 150%;
-  height: 42%;
+  height: 48%;
   z-index: 1;
   background-image:
-    repeating-linear-gradient(90deg, fade(@club-cyan, 55%) 0 2px, transparent 2px 8vw),
-    repeating-linear-gradient(0deg, fade(@club-magenta, 55%) 0 2px, transparent 2px 6vh);
-  background-size: 100% 100%, 100% 6vh;
-  transform: perspective(30vh) rotateX(68deg);
+    repeating-linear-gradient(90deg, fade(@club-magenta, 60%) 0 2px, transparent 2px 7vw),
+    repeating-linear-gradient(0deg, fade(@club-cyan, 60%) 0 2px, transparent 2px 5vh);
+  background-size: 100% 100%, 100% 5vh;
+  transform: perspective(30vh) rotateX(72deg);
   transform-origin: bottom center;
   animation: clubGridScroll 1.6s linear infinite;
   mix-blend-mode: screen;
@@ -734,125 +717,128 @@ button.inicio {
 
 @keyframes clubGridScroll {
   0%   { background-position: 0 0, 0 0; }
-  100% { background-position: 0 0, 0 6vh; }
+  100% { background-position: 0 0, 0 5vh; }
 }
 
-/* Resplandor del horizonte sobre la grilla */
+/* Resplandor del horizonte */
 .club-horizonte {
   position: absolute;
   left: 0;
-  bottom: 40%;
+  bottom: 45%;
   width: 100%;
-  height: 8%;
+  height: 10%;
   z-index: 1;
-  background: linear-gradient(to top, fade(@club-magenta, 55%), transparent);
-  filter: blur(1vw);
+  background: linear-gradient(to top, fade(@club-magenta, 60%), transparent);
+  filter: blur(1.2vw);
   pointer-events: none;
 }
 
-/* Rana protagonista */
-.club-rana {
+/* Marca Superior - SUPERBOLIRANA estilo metalizado retro */
+.club-marca-container {
   position: absolute;
-  left: 50%;
-  bottom: 22%;
-  width: 46vw;
-  max-width: 260px;
-  transform: translateX(-50%);
-  z-index: 2;
-  pointer-events: none;
-  filter: drop-shadow(0 0 1.6vw fade(@club-cyan, 70%)) drop-shadow(0 0 3vw fade(@club-magenta, 45%));
-  animation: clubFlotar 3.6s ease-in-out infinite;
-}
-
-@keyframes clubFlotar {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(-1.6vh); }
-}
-
-/* Contenido central */
-.inicio-club .club-contenido {
-  position: relative;
-  z-index: 3;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 6%;
-  box-sizing: border-box;
+  top: 5vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 4;
 }
 
 .club-marca {
   font-family: sofachrome, cs, sans-serif;
-  font-size: 9vw;
-  letter-spacing: 0.4vw;
-  color: #fff;
-  margin-bottom: 4vh;
-  text-shadow:
-    0 0 0.4vw #fff,
-    0 0 1.4vw @club-cyan,
-    0 0 2.6vw @club-magenta,
-    0 0 4vw @club-magenta;
-  animation: clubParpadeo 3.5s ease-in-out infinite;
+  font-size: 6.5vw;
+  letter-spacing: 0.3vw;
+  margin: 0;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #b8d9f8 40%, #2b5c8f 50%, #ffffff 52%, #224263 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 0.8vw fade(@club-cyan, 90%)) drop-shadow(0 0 2vw fade(@club-magenta, 70%));
+  transform: skewX(-10deg);
+  animation: clubParpadeo 4s ease-in-out infinite;
 }
 
 @keyframes clubParpadeo {
   0%, 100% { opacity: 1; }
   48%      { opacity: 1; }
-  50%      { opacity: 0.72; }
+  50%      { opacity: 0.8; }
   52%      { opacity: 1; }
+}
+
+/* Rana protagonista (Izquierda e inferior) */
+.club-rana {
+  position: absolute;
+  left: 2%;
+  bottom: 0;
+  height: 82vh;
+  width: auto;
+  max-width: 48vw;
+  object-fit: contain;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1.5vw fade(@club-cyan, 60%)) drop-shadow(0 0 3vw fade(@club-magenta, 40%));
+  animation: clubFlotar 4s ease-in-out infinite;
+}
+
+@keyframes clubFlotar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-1.5vh); }
+}
+
+/* Contenido / Botón a la derecha */
+.inicio-club .club-contenido {
+  position: absolute;
+  right: 5%;
+  bottom: 12%;
+  width: 50vw;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .comenzar-club {
   font-family: cs, sans-serif;
-  font-size: 8vw;
-  line-height: 1.05;
+  font-size: 5vw;
+  line-height: 1.1;
   color: #fff;
   text-shadow:
-    0 0 0.6vw #fff,
-    0 0 1.6vw @club-magenta,
-    0 0 3vw @club-magenta,
-    0 0 5vw @club-violeta;
+    0 0 0.5vw #fff,
+    0 0 1.5vw @club-magenta,
+    0 0 3vw @club-violeta;
 }
 
 .presione-club {
   font-family: cs, sans-serif;
-  font-size: 5.6vw;
-  line-height: 1.25;
+  font-size: 3.5vw;
+  line-height: 1.2;
   color: #eaf3ff;
-  margin-top: 3vh;
+  margin-top: 1.5vh;
   text-shadow: 0 0 1vw fade(@club-cyan, 70%);
-
-  .club-resalte {
-    color: @club-dorado;
-    text-shadow:
-      0 0 0.6vw #fff,
-      0 0 1.6vw @club-dorado,
-      0 0 3vw #ff8a00;
-  }
 }
 
-/* Boton INICIAR neon (sobreescribe el posicionamiento absoluto heredado) */
+/* Boton INICIAR neon */
 .inicio-club .inicio-btn-club {
-  position: static;
+  position: relative;
   bottom: auto;
   right: auto;
-  margin: 6vh 0 0 0;
+  margin: 3vh 0 0 0;
   width: auto;
-  min-width: 44vw;
-  padding: 1.6vh 6vw;
+  min-width: 28vw;
+  padding: 1.8vh 4vw;
   line-height: 1.1;
-  border: 0.35vw solid @club-cyan;
+  border: 0.3vw solid @club-cyan;
   border-radius: 8vw;
   font-family: cs, sans-serif;
-  font-size: 6vw;
+  font-size: 4vw;
   color: #fff;
   background: linear-gradient(135deg, @club-magenta, @club-violeta);
-  text-shadow: 0 0 1vw rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 0.8vw rgba(0, 0, 0, 0.6);
   box-shadow:
-    0 0 1.4vw fade(@club-magenta, 90%),
+    0 0 1.5vw fade(@club-magenta, 90%),
     0 0 3vw fade(@club-cyan, 70%),
-    inset 0 0 1.4vw fade(#fff, 30%);
+    inset 0 0 1.5vw fade(#fff, 30%);
   animation: clubPulso 1.8s ease-in-out infinite;
   transition: transform 200ms ease, box-shadow 200ms ease;
 
@@ -867,14 +853,14 @@ button.inicio {
 @keyframes clubPulso {
   0%, 100% {
     box-shadow:
-      0 0 1.4vw fade(@club-magenta, 90%),
+      0 0 1.5vw fade(@club-magenta, 90%),
       0 0 3vw fade(@club-cyan, 70%),
-      inset 0 0 1.4vw fade(#fff, 30%);
+      inset 0 0 1.5vw fade(#fff, 30%);
   }
   50% {
     box-shadow:
-      0 0 2.6vw fade(@club-magenta, 100%),
-      0 0 6vw fade(@club-cyan, 90%),
-      inset 0 0 2vw fade(#fff, 45%);
+      0 0 2.5vw fade(@club-magenta, 100%),
+      0 0 5vw fade(@club-cyan, 90%),
+      inset 0 0 2vw fade(#fff, 50%);
   }
 }

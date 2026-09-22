@@ -16,19 +16,22 @@
         <div class="club-grid" aria-hidden="true"></div>
         <div class="club-horizonte" aria-hidden="true"></div>
 
-        <!-- Rana protagonista -->
-        <img src="assets/img/rana-neon.png" class="club-rana" alt="">
+        <!-- Marca / Titulo superior -->
+        <div class="club-marca-container">
+            <h1 class="club-marca">SUPERBOLIRANA</h1>
+        </div>
 
+        <!-- Rana protagonista (Ubicada abajo a la izquierda como en la referencia) -->
+        <img src="assets/img/rana-neon.png" class="club-rana" alt="Rana Superbolirana">
+
+        <!-- Contenido dinámico / Botón principal -->
         <div class="club-contenido centrar">
-            <div class="club-marca">FROSCH</div>
-
             <div class="comenzar-club">
                 {{'COMENZAR' | translate}}
             </div>
 
             <div class="presione-club">
                 {{"PRESIONE" | translate}}
-                <!-- <br><strong class="club-resalte">{{"INICIAR" | translate}}</strong> -->
             </div>
 
             <button class="inicio inicio-btn-club" ng-click="iniciar()">{{"INICIAR" | translate}}</button>
