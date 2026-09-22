@@ -519,84 +519,133 @@ button.inicio {
   overflow: hidden;
   background: radial-gradient(120% 90% at 50% 0%, #2a0b4e 0%, #160726 45%, #06020d 100%);
 }
-.club-luces {
+.club-neon {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 74%;
   overflow: hidden;
   pointer-events: none;
   z-index: 1;
 }
-.club-luces .haz {
+.club-neon .linea {
   position: absolute;
-  top: -20%;
-  left: 50%;
-  width: 26vw;
-  height: 140%;
-  transform-origin: top center;
-  opacity: 0.5;
+  top: -30%;
+  left: -20%;
+  width: 140%;
+  height: 0.9vw;
+  min-height: 3px;
+  border-radius: 999px;
+  transform: rotate(-24deg);
+  opacity: 0.85;
   mix-blend-mode: screen;
-  filter: blur(0.6vw);
-  animation: clubBarrido 6s ease-in-out infinite alternate;
+  filter: blur(0.15vw);
+  animation: clubDeslizar 5s linear infinite;
 }
-.club-luces .haz-1 {
-  background: linear-gradient(to bottom, rgba(255, 45, 149, 0.55), rgba(255, 45, 149, 0));
+.club-neon .linea-1 {
+  top: 6%;
+  background: linear-gradient(90deg, transparent, #ff2d95 45%, #fff 50%, #ff2d95 55%, transparent);
+  box-shadow: 0 0 2vw rgba(255, 45, 149, 0.8);
+  animation-duration: 4.6s;
   animation-delay: 0s;
 }
-.club-luces .haz-2 {
-  background: linear-gradient(to bottom, rgba(0, 229, 255, 0.55), rgba(0, 229, 255, 0));
-  animation-delay: -1.5s;
+.club-neon .linea-2 {
+  top: 22%;
+  background: linear-gradient(90deg, transparent, #00e5ff 45%, #fff 50%, #00e5ff 55%, transparent);
+  box-shadow: 0 0 2vw rgba(0, 229, 255, 0.8);
+  animation-duration: 6.2s;
+  animation-delay: -1.4s;
 }
-.club-luces .haz-3 {
-  background: linear-gradient(to bottom, rgba(122, 43, 255, 0.6), rgba(122, 43, 255, 0));
-  animation-delay: -3s;
+.club-neon .linea-3 {
+  top: 38%;
+  background: linear-gradient(90deg, transparent, #7a2bff 45%, #fff 50%, #7a2bff 55%, transparent);
+  box-shadow: 0 0 2vw rgba(122, 43, 255, 0.9);
+  animation-duration: 5.4s;
+  animation-delay: -2.6s;
 }
-.club-luces .haz-4 {
-  background: linear-gradient(to bottom, rgba(255, 207, 63, 0.45), rgba(255, 207, 63, 0));
-  animation-delay: -4.5s;
+.club-neon .linea-4 {
+  top: 54%;
+  background: linear-gradient(90deg, transparent, #ffcf3f 45%, #fff 50%, #ffcf3f 55%, transparent);
+  box-shadow: 0 0 2vw rgba(255, 207, 63, 0.7);
+  animation-duration: 7s;
+  animation-delay: -3.2s;
 }
-@keyframes clubBarrido {
+.club-neon .linea-5 {
+  top: 70%;
+  background: linear-gradient(90deg, transparent, #00e5ff 45%, #fff 50%, #ff2d95 55%, transparent);
+  box-shadow: 0 0 2vw rgba(255, 45, 149, 0.7);
+  animation-duration: 5.8s;
+  animation-delay: -0.8s;
+}
+@keyframes clubDeslizar {
   0% {
-    transform: translateX(-50%) rotate(-32deg);
+    transform: translateX(-30%) rotate(-24deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
   }
   100% {
-    transform: translateX(-50%) rotate(32deg);
+    transform: translateX(30%) rotate(-24deg);
+    opacity: 0;
   }
 }
-.club-bola {
+.club-grid {
   position: absolute;
-  top: 4vh;
-  left: 50%;
-  width: 12vw;
-  height: 12vw;
-  max-width: 90px;
-  max-height: 90px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  z-index: 2;
-  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 40%), repeating-conic-gradient(from 0deg, #cfe9ff 0deg 12deg, #7fb8e6 12deg 24deg), radial-gradient(circle at 50% 50%, #eaf6ff, #4a6b8a);
-  box-shadow: 0 0 3vw 0.6vw rgba(0, 229, 255, 0.45), inset -0.4vw -0.6vw 1.2vw rgba(0, 0, 0, 0.5);
-  animation: clubGirar 8s linear infinite;
+  left: -25%;
+  bottom: 0;
+  width: 150%;
+  height: 42%;
+  z-index: 1;
+  background-image: repeating-linear-gradient(90deg, rgba(0, 229, 255, 0.55) 0 2px, transparent 2px 8vw), repeating-linear-gradient(0deg, rgba(255, 45, 149, 0.55) 0 2px, transparent 2px 6vh);
+  background-size: 100% 100%, 100% 6vh;
+  transform: perspective(30vh) rotateX(68deg);
+  transform-origin: bottom center;
+  animation: clubGridScroll 1.6s linear infinite;
+  mix-blend-mode: screen;
 }
-@keyframes clubGirar {
+@keyframes clubGridScroll {
   0% {
-    filter: hue-rotate(0deg);
+    background-position: 0 0, 0 0;
   }
   100% {
-    filter: hue-rotate(360deg);
+    background-position: 0 0, 0 6vh;
   }
 }
-.club-piso {
+.club-horizonte {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 40%;
   width: 100%;
-  height: 26%;
+  height: 8%;
   z-index: 1;
-  background: linear-gradient(to top, rgba(122, 43, 255, 0.4), rgba(0, 0, 0, 0)), repeating-linear-gradient(115deg, rgba(0, 229, 255, 0.12) 0 1.5vw, transparent 1.5vw 4vw);
-  filter: blur(0.2vw);
+  background: linear-gradient(to top, rgba(255, 45, 149, 0.55), transparent);
+  filter: blur(1vw);
+  pointer-events: none;
+}
+.club-rana {
+  position: absolute;
+  left: 50%;
+  bottom: 22%;
+  width: 46vw;
+  max-width: 260px;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1.6vw rgba(0, 229, 255, 0.7)) drop-shadow(0 0 3vw rgba(255, 45, 149, 0.45));
+  animation: clubFlotar 3.6s ease-in-out infinite;
+}
+@keyframes clubFlotar {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-1.6vh);
+  }
 }
 .inicio-club .club-contenido {
   position: relative;
