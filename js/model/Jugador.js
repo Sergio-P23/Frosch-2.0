@@ -9,6 +9,7 @@ angular.module('Frosch')
             this.activo = false;
 
             this.ultimasArgollas = new Array(this.config.configuracion.maxArgollas);
+            this.ultimosOrificios = new Array(this.config.configuracion.maxArgollas);
 
             this.tiros = [];
 
@@ -42,12 +43,13 @@ angular.module('Frosch')
         };
 
 
-        jugadorCls.prototype.sumarPuntos = function (puntos) {
+        jugadorCls.prototype.sumarPuntos = function (puntos, orificio) {
 
             var i = 0;
             for (; i < this.ultimasArgollas.length; i++) {
                 if (this.ultimasArgollas[i] == null) {
                     this.ultimasArgollas[i] = puntos;
+                    this.ultimosOrificios[i] = orificio;
                     break;
                 }
             }
@@ -82,10 +84,10 @@ angular.module('Frosch')
                 if (this.ultimasArgollas[i] == null) {
                     return false;
                 }
-                if (this.ultimasArgollas[i] == this.config.configuracion.orificios[this.config.configuracion.orificioRana - 1]
-                    || this.ultimasArgollas[i] == this.config.configuracion.orificios[this.config.configuracion.orificioRanita - 1])
+                if (this.ultimosOrificios[i] == this.config.configuracion.orificioRana
+                    || this.ultimosOrificios[i] == this.config.configuracion.orificioRanita)
                     ranaORanita = true;
-                else if (this.config.configuracion.mononaSinRepetirOrificio && this.ultimasArgollas.indexOf(this.ultimasArgollas[i]) != i)
+                else if (this.config.configuracion.mononaSinRepetirOrificio && this.ultimosOrificios.indexOf(this.ultimosOrificios[i]) != i)
                     return false; //orificio repetido
             }
             //si no retorno todas estan llenas
@@ -127,6 +129,7 @@ angular.module('Frosch')
             if (this.turno) {
                 this.tiros.push(puntosTurno);
                 this.ultimasArgollas = new Array(this.config.configuracion.maxArgollas);
+                this.ultimosOrificios = new Array(this.config.configuracion.maxArgollas);
             }
             this.turno++;
             this.activo = true;

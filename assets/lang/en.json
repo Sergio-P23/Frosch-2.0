@@ -23,11 +23,17 @@
   "BLANQUEADO": " Blanked !",
   "TE_QUEDAN_BLANQUEADAS": "You have %numBlanqueadas% left",
   "PERDISTE" : "You lost!",
+  "OTRA_OPORTUNIDAD": "ANOTHER CHANCE!",
+  "FIN_DEL_CHICO": "END OF MATCH",
+  "VAMOS_SIGUIENTE": "ON TO THE NEXT ROUND!",
+  "RANA_REVANCHA": "THE FROG AWAITS A REMATCH!",
+  "RULETA_RANA": "FROG WHEEL!",
   "FIN_CHICO": "End of match #%numChico%",
   "CHICOS_PERDIDOS": "Lost Matches",
   "SI": "Yes",
   "NO": "No",
   "CONTINUAR": "Continue?",
   "GANASTE": "You won!",
+  "CAMPEON": "CHAMPION",
   "META": "goal score"
 }

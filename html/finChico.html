@@ -1,33 +1,28 @@
 <audio ng-src="{{ 'continuar.ogg' | translateAudio }}" autoplay="autoplay"></audio>
-<div class="view fondo-laguna">
-    <div class=" font-cs finChico">
-
-        <div class="grande centrar">
-            {{ "FIN_CHICO" | translateReplace:{numChico:numChico} }}
-        </div>
-
-        <div class="mediano centrar colorContraste">
-            {{ "CHICOS_PERDIDOS" | translate }}
-
-        </div>
-        <ul class="centrar mediano">
-            <li ng-repeat="participante in tanda.participantes">
-                <span class="jugador">
-                    <span class="primer-ganador" ng-if="participante.numero == primerGanador.numero"></span>
-                    {{ config.equipos?"EQUIPO_NUM":"JUGADOR_NUM" | translateReplace:{numero:participante.numero} }}
-                </span>
-                <span class="chicosPerdidos">{{participante.chicosPerdidos}}</span>
+<div class="view fin-chico-arcade font-cs">
+    <div class="fin-chico-marco" aria-hidden="true"></div>
+    <div class="fin-chico-luces" aria-hidden="true"></div>
+    <main class="fin-chico-contenido">
+        <span class="fin-chico-kicker">RESULTADOS DE LA RONDA</span>
+        <h1>{{ "FIN_CHICO" | translateReplace:{numChico:numChico} }}</h1>
+        <div class="fin-chico-subtitulo">{{ "CHICOS_PERDIDOS" | translate }}</div>
+        <ol class="fin-chico-lista">
+            <li ng-repeat="participante in tanda.participantes" ng-class="{'destacado': primerGanador && participante.numero === primerGanador.numero}">
+                <img ng-src="{{avatarPorNumero(participante.numero)}}" alt="">
+                <div class="fin-chico-identidad">
+                    <span>{{ (config.equipos ? 'EQUIPO_NUM' : 'JUGADOR_NUM') | translateReplace:{numero:participante.numero} }}</span>
+                    <small ng-if="primerGanador && participante.numero === primerGanador.numero">★ DESTACADO</small>
+                </div>
+                <strong>{{participante.chicosPerdidos}}</strong>
             </li>
-        </ul>
-
-        <div class="grande clearfix continuar">
-            <span class="texto">{{ "CONTINUAR" | translate }}</span>
+        </ol>
+        <div class="fin-chico-continuar">
+            <span>{{ "CONTINUAR" | translate }}</span>
             <botonera max="2" callback="callback" seleccionado="seleccionado" keymap="config.configuracion.keymap">
-                <opcion opcion="1">{{ "SI" | translate}}</opcion>
-                <opcion opcion="2">{{ "NO" | translate}}</opcion>
+                <opcion opcion="1">{{ "SI" | translate }}</opcion>
+                <opcion opcion="2">{{ "NO" | translate }}</opcion>
             </botonera>
         </div>
-    </div>
-    <img src="assets/img/rana-felicitaciones.png" class="ranas-esquina derecha"/>
-
+    </main>
+    <img class="fin-chico-rana" src="assets/img/rana-victoria-fiesta.png" alt="Rana celebrando la partida">
 </div>

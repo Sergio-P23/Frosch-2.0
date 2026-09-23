@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 144" role="img" aria-label="Botella de premio">
+  <defs>
+    <linearGradient id="vidrio" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#053b30"/>
+      <stop offset=".25" stop-color="#16a869"/>
+      <stop offset=".51" stop-color="#8aff8e"/>
+      <stop offset=".77" stop-color="#168f67"/>
+      <stop offset="1" stop-color="#062e35"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fff5b9"/>
+      <stop offset=".5" stop-color="#ffc347"/>
+      <stop offset="1" stop-color="#b96824"/>
+    </linearGradient>
+    <filter id="brillo"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+  <ellipse cx="48" cy="137" rx="37" ry="5" fill="#23f5dd" opacity=".6" filter="url(#brillo)"/>
+  <path d="M35 7h26v14H35z" fill="url(#metal)" stroke="#fff3ac" stroke-width="2"/>
+  <path d="M39 21h18v26c0 10 15 18 20 29 5 11 7 23 7 44 0 10-8 17-18 17H30c-10 0-18-7-18-17 0-21 2-33 7-44 5-11 20-19 20-29z" fill="url(#vidrio)" stroke="#a8ffd8" stroke-width="3"/>
+  <path d="M32 75c-6 10-8 24-8 45m26-91v31" fill="none" stroke="#edfff0" stroke-width="5" stroke-linecap="round" opacity=".67"/>
+  <path d="M17 88c20-10 42-10 62 0v27c-20 9-42 9-62 0z" fill="#143c6c" stroke="url(#metal)" stroke-width="3"/>
+  <path d="m48 88 3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1z" fill="#ffdb4a" stroke="#fff5b4" stroke-width="1.5"/>
+  <circle cx="82" cy="43" r="3" fill="#fff4b4"/>
+  <circle cx="14" cy="54" r="2" fill="#6ffff1"/>
+  <path d="m80 18 2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffec87"/>
+</svg>

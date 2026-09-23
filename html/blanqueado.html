@@ -1,20 +1,22 @@
 <audio src="assets/sounds/blanqueado.ogg" preload="true" autoplay="true"></audio>
 <div ng-init="continuaJuego = !jugador.perdio"
-     class="view font-cs blanqueado" ng-class="{
-        'fondo-blanqueadas': continuaJuego,
-        'fondo-blanqueadas-out': !continuaJuego}">
-    <div class="centrar grande rana-label">
-        {{"BLANQUEADO" | translate}}<br>
-        <span ng-if="continuaJuego && config.blanqueada">
+     class="view font-cs blanqueado resultado-fiesta" ng-class="{'resultado-perder': !continuaJuego}">
+    <div class="resultado-luces" aria-hidden="true"></div>
+    <div class="resultado-piso" aria-hidden="true"></div>
+    <div class="resultado-chispas" aria-hidden="true"></div>
+    <div class="resultado-marco" aria-hidden="true"></div>
+    <section class="resultado-contenido">
+        <div class="resultado-sello" ng-if="continuaJuego">{{"OTRA_OPORTUNIDAD" | translate}}</div>
+        <div class="resultado-sello" ng-if="!continuaJuego">{{"FIN_DEL_CHICO" | translate}}</div>
+        <h1>{{continuaJuego ? ("BLANQUEADO" | translate) : ("PERDISTE" | translate)}}</h1>
+        <div class="resultado-raya" aria-hidden="true"></div>
+        <p ng-if="continuaJuego && config.blanqueada">
             {{"TE_QUEDAN_BLANQUEADAS" | translateReplace:{ numBlanqueadas: jugador.blanqueadasRestantes()} }}
-        </span>
-
-         <span ng-if="!continuaJuego">
-            {{"PERDISTE" | translate }}
-             <audio ng-src="{{ 'gameover.ogg'  | translateAudio }}" autoplay="autoplay"></audio>
-        </span>
-    </div>
-    <img src="assets/img/rana-blanqueada.png" class="centrar" ng-if="continuaJuego"/>
-
+        </p>
+        <p ng-if="continuaJuego && !config.blanqueada">{{"VAMOS_SIGUIENTE" | translate}}</p>
+        <p ng-if="!continuaJuego">{{"RANA_REVANCHA" | translate}}</p>
+    </section>
+    <img src="assets/img/rana-neon.png" class="resultado-rana" alt="" aria-hidden="true">
+    <audio ng-if="!continuaJuego" ng-src="{{ 'gameover.ogg' | translateAudio }}" autoplay="autoplay"></audio>
 </div>
 

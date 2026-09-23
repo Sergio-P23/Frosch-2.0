@@ -1,25 +1,45 @@
 <audio ng-src="{{ 'inicio.ogg' | translateAudio }}" autoplay="autoplay"></audio>
 <audio src="assets/sounds/introduccion.ogg" autoplay="autoplay"></audio>
 <div ng-if="!mostrandoVideo">
-    <div class="view fondo-laguna font-cs inicio">
+    <div class="view font-cs inicio-club">
 
-        <img src="assets/img/ranas-esquina.png" class="ranas-esquina"></span>
-
-        <div class="comenzar grande centrar">
-            {{'COMENZAR' | translate}}
-
+        <!-- Fondo synthwave: lineas neon diagonales en movimiento -->
+        <div class="club-neon" aria-hidden="true">
+            <span class="linea linea-1"></span>
+            <span class="linea linea-2"></span>
+            <span class="linea linea-3"></span>
+            <span class="linea linea-4"></span>
+            <span class="linea linea-5"></span>
         </div>
-        <div class="presione grande centrar">{{"PRESIONE"| translate}}
-            <br><strong class="colorContraste">{{"INICIAR" | translate}}</strong>
+
+        <!-- Grilla en perspectiva (piso retro) que se desplaza -->
+        <div class="club-grid" aria-hidden="true"></div>
+        <div class="club-horizonte" aria-hidden="true"></div>
+
+        <!-- Marca / Titulo superior -->
+        <div class="club-marca-container">
+            <h1 class="club-marca">SUPERBOLIRANA</h1>
         </div>
 
-        <button class="inicio" ng-click="iniciar()">{{"INICIAR" | translate}}</button>
+        <!-- Rana protagonista (Ubicada abajo a la izquierda como en la referencia) -->
+        <img src="assets/img/rana-neon.png" class="club-rana" alt="Rana Superbolirana">
+
+        <!-- Contenido dinámico / Botón principal -->
+        <div class="club-contenido centrar">
+            <div class="comenzar-club">
+                {{'COMENZAR' | translate}}
+            </div>
+
+            <div class="presione-club">
+                {{"PRESIONE" | translate}}
+            </div>
+
+            <button class="inicio inicio-btn-club" ng-click="iniciar()">{{"INICIAR" | translate}}</button>
+        </div>
     </div>
 </div>
-
 <div ng-if="mostrandoVideo">
     <videogular vg-auto-play="true" vg-complete="quitarVideo()">
         <vg-media vg-src="videos[numVideo]"></vg-media>
     </videogular>
 </div>
-
