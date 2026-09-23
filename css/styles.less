@@ -656,13 +656,16 @@ button.inicio {
 
 .club-marca {
   font-family: sofachrome, cs, sans-serif;
-  font-size: 6.5vw;
-  letter-spacing: 0.3vw;
+  font-size: 6.3vw;
+  letter-spacing: 0.25vw;
+  white-space: nowrap;
   margin: 0;
   text-transform: uppercase;
   background: linear-gradient(180deg, #ffffff 0%, #b8d9f8 40%, #2b5c8f 50%, #ffffff 52%, #224263 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: .08vw #f12e52;
+  paint-order: stroke fill;
   filter: drop-shadow(0 0 0.8vw fade(@club-cyan, 90%)) drop-shadow(0 0 2vw fade(@club-magenta, 70%));
   transform:  skewX(-10deg) scaleX(0.97) scaleY(1.45);
   animation: clubParpadeo 4s ease-in-out infinite;
@@ -815,7 +818,7 @@ button.inicio {
 
 .reglas-panel {
   position: absolute;
-  z-index: 2;
+  z-index: 9;
   top: 4vh;
   left: 5vw;
   width: 57vw;
@@ -885,22 +888,41 @@ button.inicio {
   small { margin-top: 1vh; font-size: 1.35vw; letter-spacing: .1vw; }
 }
 
-.reglas-rana {
+.reglas-rana-wrap {
   position: absolute;
   z-index: 3;
   right: 1vw;
   bottom: -4vh;
   width: 38vw;
-  max-height: 69vh;
+  height: 69vh;
+  pointer-events: none;
+  animation: reglasFlotar 3.2s ease-in-out infinite;
+}
+
+.reglas-rana-brillos {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 45%;
+  width: 82%;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.reglas-rana {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: bottom right;
+  transform: scaleX(-1) translateX(-27%);
   filter: drop-shadow(0 0 1vw fade(#65ff5d, 70%)) drop-shadow(0 0 2vw fade(#e040ff, 62%));
-  animation: reglasFlotar 3.2s ease-in-out infinite;
-  pointer-events: none;
 }
 
 @keyframes reglasFlotar { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-1.1vh) rotate(1deg); } }
-.reglas-ayuda { position: absolute; z-index: 4; right: 26vw; bottom: 2.5vh; color: #f2edff; font-size: 1.45vw; text-shadow: 0 0 .6vw #7e6dff; }
+.reglas-ayuda { position: absolute; z-index: 4; right: 52vw; bottom: 2.5vh; color: #f2edff; font-size: 1.45vw; text-shadow: 0 0 .6vw #7e6dff; }
 
 .columna.jugadores.muchosJugadores .jugador {
   height: 11.4vh;
