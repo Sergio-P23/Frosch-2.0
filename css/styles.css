@@ -344,6 +344,17 @@ video {
   padding-top: 4%;
   padding-left: 19%;
 }
+.resultado-fiesta .resultado-rana {
+  animation: resultadoRanaFlotar 3s ease-in-out infinite;
+}
+@keyframes resultadoRanaFlotar {
+  0%, 100% {
+    transform: scaleX(-1) translateY(0);
+  }
+  50% {
+    transform: scaleX(-1) translateY(-1.2vh);
+  }
+}
 .argolla {
   border: solid 0.4vw white;
   background: #eeeeee;

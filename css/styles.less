@@ -1406,16 +1406,21 @@ button.inicio {
 .resultado-rana {
   position: absolute;
   z-index: 3;
-  right: 2vw;
-  bottom: -6vh;
+  right: -7vw;
+  bottom: -1vh;
   height: 80vh;
   max-width: 37vw;
   object-fit: contain;
   object-position: bottom right;
   filter: drop-shadow(0 0 1.5vw #2ceaff) drop-shadow(0 0 2vw #ff48b9);
-  animation: clubFlotar 3s ease-in-out infinite;
+  animation: resultadoRanaFlotar 3s ease-in-out infinite;
+  
 }
 .resultado-perder .resultado-rana { filter: drop-shadow(0 0 1.5vw #ffad63) drop-shadow(0 0 2vw #ff459d); }
+@keyframes resultadoRanaFlotar {
+  0%, 100% { transform: scaleX(-1) translateY(0); }
+  50% { transform: scaleX(-1) translateY(-1.2vh); }
+}
 
 .estado-partida {
   left: 4.8vw;

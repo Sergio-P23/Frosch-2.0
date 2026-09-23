@@ -16,7 +16,7 @@
         <p ng-if="continuaJuego && !config.blanqueada">{{"VAMOS_SIGUIENTE" | translate}}</p>
         <p ng-if="!continuaJuego">{{"RANA_REVANCHA" | translate}}</p>
     </section>
-    <img src="assets/img/rana-neon.png" class="resultado-rana" alt="" aria-hidden="true">
+    <img src="assets/img/rana-blanqueado.png" class="resultado-rana" alt="" aria-hidden="true">
     <audio ng-if="!continuaJuego" ng-src="{{ 'gameover.ogg' | translateAudio }}" autoplay="autoplay"></audio>
 </div>
 
