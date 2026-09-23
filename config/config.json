@@ -1,47 +1,27 @@
 {
   "idioma":"es-co",
-  "puntajes": [
-    400,
-    800,
-    1200,
-    1600,
-    1800,
-    2000
-  ],
-  "blanqueadas": [
-    0,
-    -10,
-    -20,
-    -50
-  ],
-  "creditosPorPuntaje": {
-    "400": 1,
-    "800": 1,
-    "1200": 1,
-    "1600": 2,
-    "1800": 2,
-    "2000": 2
-
-  },
   "maxArgollas": 6,
   "maxBlanqueadas": 6,
   "minutosEntreVideos": 5,
-  "orificios": [
-    10,
-    100,
-    12,
-    15,
-    120,
-    18,
-    20,
-    40,
-    25,
-    30,
-    35,
-    38
+  "orificios": [150, 150, 50, 50, 25, 25, 40, 40, 20, 20, 100, 100, 500, 200],
+  "tablero": [
+    {"id": 1, "tipo": "botella", "puntos": 150, "etiqueta": "150"},
+    {"id": 2, "tipo": "botella", "puntos": 150, "etiqueta": "150"},
+    {"id": 3, "tipo": "hueco", "puntos": 50, "etiqueta": "50"},
+    {"id": 4, "tipo": "hueco", "puntos": 50, "etiqueta": "50"},
+    {"id": 5, "tipo": "hueco", "puntos": 25, "etiqueta": "25"},
+    {"id": 6, "tipo": "hueco", "puntos": 25, "etiqueta": "25"},
+    {"id": 7, "tipo": "hueco", "puntos": 40, "etiqueta": "40"},
+    {"id": 8, "tipo": "hueco", "puntos": 40, "etiqueta": "40"},
+    {"id": 9, "tipo": "hueco", "puntos": 20, "etiqueta": "20"},
+    {"id": 10, "tipo": "hueco", "puntos": 20, "etiqueta": "20"},
+    {"id": 11, "tipo": "hueco", "puntos": 100, "etiqueta": "100"},
+    {"id": 12, "tipo": "hueco", "puntos": 100, "etiqueta": "100"},
+    {"id": 13, "tipo": "rana", "variante": "ruleta", "puntos": 500, "etiqueta": "RULETA"},
+    {"id": 14, "tipo": "rana", "puntos": 200, "etiqueta": "200"}
   ],
-  "orificioRana": 2,
-  "orificioRanita": 5,
+  "orificioRana": 13,
+  "orificioRanita": 14,
   "monona": true,
   "mononaSinRepetirOrificio": true,
   "keymap": {
@@ -60,12 +40,16 @@
     "orificio10": "7",
     "orificio11": "8",
     "orificio12": "9",
+    "orificio13": "r",
+    "orificio14": "g",
     "jugador1": "t",
     "jugador2": "y",
     "jugador3": "u",
     "jugador4": "i",
     "jugador5": "o",
-    "jugador6": "p"
+    "jugador6": "p",
+    "jugador7": "q",
+    "jugador8": "w"
 
   }
 }

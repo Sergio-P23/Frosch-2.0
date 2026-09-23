@@ -24,10 +24,16 @@
   "FIN_CHICO": "Gamer plus #%numChico%",
   "TE_QUEDAN_BLANQUEADAS": "Vous avez  %numBlanqueadas%",
   "PERDISTE" : "Vous avez perdu le jeu!",
+  "OTRA_OPORTUNIDAD": "ENCORE UNE CHANCE !",
+  "FIN_DEL_CHICO": "FIN DE LA PARTIE",
+  "VAMOS_SIGUIENTE": "EN ROUTE POUR LA SUITE !",
+  "RANA_REVANCHA": "LA GRENOUILLE ATTEND LA REVANCHE !",
+  "RULETA_RANA": "ROUE DE LA GRENOUILLE !",
   "CHICOS_PERDIDOS": "Fin Du Jeu",
   "SI": "Ouaip",
   "NO": "Ne Pas",
   "CONTINUAR": "Continuer?",
   "GANASTE": "Vous Avez Gagné!",
+  "CAMPEON": "CHAMPION",
   "META": "Goal"
 }

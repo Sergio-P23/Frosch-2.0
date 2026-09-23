@@ -1,5 +1,5 @@
 angular.module('Frosch')
-    .controller('FinChicoCtrl', function ($scope, $state, hotkeys, chico, tanda) {
+    .controller('FinChicoCtrl', function ($scope, $state, hotkeys, chico, tanda, AvataresJugadores) {
 
         $scope.numChico = tanda.chicos.length;
         tanda.finalizarChico(chico);
@@ -9,6 +9,7 @@ angular.module('Frosch')
         $scope.config = chico.configuracion;
 
         $scope.primerGanador = chico.ganadores[0];
+        $scope.avatarPorNumero = AvataresJugadores;
         $scope.callback = {
             configurar: function configurar(opcion) {
 

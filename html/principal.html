@@ -1,65 +1,67 @@
 <audio ng-src="{{ 'jugar.ogg'  | translateAudio }}" autoplay="autoplay"></audio>
 <ui-view>
-    <div class="view fondo-laguna font-cs">
-        <div class="columna jugadores">
+    <div class="view partidaArcade font-cs">
+        <div class="rail-marcador" aria-hidden="true"></div>
+        <div class="marco-arcade" aria-hidden="true"></div>
+        <img class="arte-tablero" src="assets/img/tablero-festivo.png" alt="Ranas, botellas y tablero de ruleta">
+        <div class="confeti" aria-hidden="true"><i ng-repeat="i in confeti track by $index" ng-style="{'left': i.left + '%', 'animation-delay': '-' + i.delay + 's'}"></i></div>
+        <section class="panel-jugadores" ng-class="{muchosJugadores: jugadores.length > 4, pocosJugadores: jugadores.length <= 2}">
             <jugador ng-repeat="jugador in jugadores" jugador="jugador" maximo="config.puntos"
                      ng-click="cambiarTurno(jugador.numero)"></jugador>
+        </section>
 
+        <section class="tablero-rana" ng-class="{puntuando: puntajeActualizado}">
+            <div class="ruleta-tablero" aria-hidden="true"><span>R</span></div>
+            <div class="objetivos-tablero">
+                <button ng-repeat="objetivo in config.configuracion.tablero track by objetivo.id"
+                        class="objetivo objetivo-{{objetivo.tipo}} objetivo-{{objetivo.variante}} objetivo-{{objetivo.id}}"
+                        data-target="{{objetivo.id}}"
+                        ng-class="{activo: objetivoActivo === objetivo.id}"
+                        ng-click="sumarPuntos(objetivo.id)">
+                    <span>{{objetivo.etiqueta}}</span>
+                </button>
+            </div>
+        </section>
+
+        <div class="impacto-puntos" ng-if="ultimoPuntaje" aria-live="polite">
+            <img ng-if="ultimoPuntaje.tipo === 'botella'" src="assets/img/botella-premio.svg" alt="" aria-hidden="true">
+            <span>+{{ultimoPuntaje.puntos}}</span>
         </div>
 
-        <div class="columna monedas">
-            <div class="datos">
-                <div class="turno">
-                    <div class="titulo">{{"TURNO" | translate}}</div>
-                    <div class="numero">{{chico.jugadorActual.turno}}</div>
-                </div>
-                <div class="puntos">
-                    <div class="titulo">{{"PUNTOS" | translate}}</div>
-                    <div class="numero">{{chico.jugadorActual.puntosTurno()}}</div>
-                </div>
-            </div>
-
-
-            <div class="centrar argollas">
-                <div class="argolla" ng-repeat="argolla in chico.jugadorActual.ultimasArgollas track by $index"
-                     ng-class="{inactiva: !argolla}">
-                    {{ argolla || '&nbsp'}}
-                </div>
-            </div>
-
-            <div class="tiros">
-                <div class="tiro" ng-repeat="puntaje in chico.jugadorActual.tiros track by $index">
-                    <div class="datos">
-                        <div class="turno">
-                            <div class="titulo">{{"TURNO" | translate}}</div>
-                            <div class="numero">{{$index+1}}</div>
-                        </div>
-                        <div class="puntos">
-                            <div class="titulo">{{"PUNTOS" | translate}}</div>
-                            <div class="numero">{{puntaje}}</div>
-                        </div>
+        <div class="ruleta-giro" ng-if="ruletaGirando" ng-class="{revelando: ruletaRevelando}" aria-live="polite">
+            <div class="ruleta-escena">
+                <span class="ruleta-titulo">RULETA DE LA RANA</span>
+                <div class="ruleta-rueda">
+                    <div class="ruleta-flecha" aria-hidden="true"></div>
+                    <div class="disco-ruleta" ng-style="{'transform': 'rotate(' + ruletaAngulo + 'deg)'}" aria-hidden="true">
+                        <span class="ruleta-sector sector-1">20</span>
+                        <span class="ruleta-sector sector-2">25</span>
+                        <span class="ruleta-sector sector-3">40</span>
+                        <span class="ruleta-sector sector-4">50</span>
+                        <span class="ruleta-sector sector-5">100</span>
+                        <span class="ruleta-sector sector-6">150</span>
+                        <span class="ruleta-sector sector-7">200</span>
+                        <span class="ruleta-sector sector-8">500</span>
                     </div>
-
                 </div>
+                <strong class="ruleta-estado" ng-if="!ruletaRevelando">GIRANDO...</strong>
+                <strong class="ruleta-premio" ng-if="ruletaRevelando">+{{ruletaResultado}} PUNTOS</strong>
             </div>
         </div>
 
-        <div class="columna orificios">
-            <div class="centrar meta">
-                <span>{{"META" | translate}}</span>
-
-                <div class="pequeno">{{config.puntos}} {{"PUNTOS" | translate}}</div>
-            </div>
-            <div class="centrar argollas">
-                <div class="argolla"
-                     ng-repeat="orificio in config.configuracion.orificios track by $index"
-                     ng-class="{
-                    rana: $index+1==config.configuracion.orificioRana,
-                    ranita: $index+1==config.configuracion.orificioRanita
-                    }">
-                    {{orificio}}
-                </div>
-            </div>
-        </div>
+        <section class="estado-partida">
+            <div><span>MEJOR CHICO</span><strong>{{config.puntos}} PUNTOS</strong></div>
+            <div><span>TURNO ACTIVO</span><strong>JUGADOR ACTUAL: {{chico.jugadorActual.numero}}</strong></div>
+            <div><span>FALTA PARA GANAR</span><strong>{{config.puntos - chico.jugadorActual.puntos}} PUNTOS</strong></div>
+            <div class="atajos-ranas"><span>R: RULETA &nbsp; · &nbsp; G: RANA 200</span></div>
+        </section>
     </div>
 </ui-view>
+<div class="anuncio-turno" ng-if="mostrarAnuncioTurno" aria-live="polite">
+    <div class="anuncio-turno-contenido">
+        <span class="anuncio-etiqueta">TURNO DE</span>
+        <img ng-src="{{avatarTurno}}" alt="Jugador {{turnoAnunciado.numero}}">
+        <strong>{{(turnoAnunciado.equipo ? 'EQUIPO' : 'JUGADOR') | translate}} {{turnoAnunciado.numero}}</strong>
+        <span class="anuncio-puntos">{{turnoAnunciado.puntos}} PUNTOS</span>
+    </div>
+</div>

@@ -23,11 +23,17 @@
   "BLANQUEADO": "¡ Blanqueado !",
   "TE_QUEDAN_BLANQUEADAS": "Te quedan %numBlanqueadas%",
   "PERDISTE" : "¡Perdiste el chico!",
+  "OTRA_OPORTUNIDAD": "¡OTRA OPORTUNIDAD!",
+  "FIN_DEL_CHICO": "FIN DEL CHICO",
+  "VAMOS_SIGUIENTE": "¡VAMOS POR LA SIGUIENTE!",
+  "RANA_REVANCHA": "¡LA RANA ESPERA LA REVANCHA!",
+  "RULETA_RANA": "¡RULETA DE LA RANA!",
   "FIN_CHICO": "Fin del chico #%numChico%",
   "CHICOS_PERDIDOS": "Chicos Perdidos",
   "SI": "Sí",
   "NO": "No",
   "CONTINUAR": "¿Continuar?",
   "GANASTE": "¡Ganaste!",
+  "CAMPEON": "CAMPEÓN",
   "META":"Meta"
 }

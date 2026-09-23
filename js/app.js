@@ -33,16 +33,16 @@ angular.module('Frosch', ['ui.router', 'translate', 'cfp.hotkeys', 'com.2fdevs.v
             }
           }
         })
-        .state('jugar.seleccionEquipos', {
-          url: "/equipos",
-          controller: 'SeleccionEquposCtrl',
-          templateUrl: "html/seleccionEquipos.html"
+        .state('jugar.reglas', {
+          url: "/reglas",
+          controller: 'ReglasCtrl',
+          templateUrl: "html/reglas.html"
         })
         .state('jugar.nuevoChico', {
           url: "/nuevo",
           controller: function ($scope, $state, tanda) {
             tanda.nuevoChico();
-            $state.go('jugar.chico.seleccionBlanqueada');
+            $state.go('jugar.chico.principal');
             if ($scope.configurarAudio)
               $scope.configurarAudio.play();
           },
@@ -56,20 +56,6 @@ angular.module('Frosch', ['ui.router', 'translate', 'cfp.hotkeys', 'com.2fdevs.v
               return tanda.chicoActual;
             }
           }
-        }).state('jugar.chico.seleccionPuntos', {
-        url: "/puntos",
-        controller: 'SeleccionPuntosCtrl',
-        templateUrl: "html/seleccionPuntos.html"
-      })
-        .state('jugar.chico.seleccionBlanqueada', {
-          url: "/blanqueadas",
-          controller: 'SeleccionBlanqueadaCtrl',
-          templateUrl: "html/seleccionBlanqueada.html"
-        })
-        .state('jugar.chico.seleccionJugadores', {
-          url: "/jugadores",
-          controller: 'SeleccionJugadoresCtrl',
-          templateUrl: "html/seleccionJugadores.html"
         })
         .state('jugar.chico.principal', {
           url: "/frosch",
@@ -159,25 +145,6 @@ angular.module('Frosch', ['ui.router', 'translate', 'cfp.hotkeys', 'com.2fdevs.v
     alert(text);
   };
 
-  $rootScope.guardarCreditos = function () {
-    localStorage.creditos = $rootScope.creditos;
-    localStorage.creditosExcedente = $rootScope.creditosExcedente;
-  };
-
-  $rootScope.cargarCreditos = function () {
-    $rootScope.creditos = localStorage.creditos ? localStorage.creditos : 0;// así no deben perderse nunca créditos
-    $rootScope.creditosExcedente = localStorage.creditosExcedente ? localStorage.creditosExcedente : 0;
-  };
-
-        $rootScope.restarCreditos = function(creditosUsados){
-            $rootScope.creditos -= creditosUsados;
-            $rootScope.guardarCreditos();
-        };
-
-        $rootScope.cargarCreditos();
-
-  var monedaAudio = new audio('moneda.ogg');
-
   function salirApp() {
     console.log('Saliendo de la aplicacion (salirApp)...');
 
@@ -258,15 +225,6 @@ angular.module('Frosch', ['ui.router', 'translate', 'cfp.hotkeys', 'com.2fdevs.v
     .add({
       combo: 'left left left',
       callback: salirApp
-    })
-    .add({
-      combo: 'c',
-      callback: function () {
-        $rootScope.creditos++;
-
-        monedaAudio.play();
-        $rootScope.guardarCreditos();
-      }
     })
     .add({
       combo: 'backspace',

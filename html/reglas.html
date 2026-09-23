@@ -1,0 +1,21 @@
+<audio ng-src="{{ 'jugar.ogg' | translateAudio }}" autoplay="autoplay"></audio>
+<div class="view seleccionReglas font-cs">
+    <div class="reglas-fondo" aria-hidden="true"></div>
+    <section class="reglas-panel" aria-label="Opciones de juego">
+        <div class="reglas-cabecera">OPCIONES DE JUEGO</div>
+        <div class="regla"
+             ng-repeat="opcion in opciones track by opcion.propiedad"
+             ng-class="{seleccionado: seleccionado === $index}"
+             ng-click="seleccionado = $index; cambiarValor()"
+             role="button" tabindex="0">
+            <span class="regla-etiqueta">{{ opcion.etiqueta }}</span>
+            <span class="regla-valor">{{ valor(opcion) }}</span>
+        </div>
+        <button class="regla-jugar" ng-class="{seleccionado: seleccionado === opciones.length}" ng-click="seleccionado = opciones.length; cambiarValor()">
+            <span>JUGAR</span>
+            <small>ENTER PARA INICIAR</small>
+        </button>
+    </section>
+    <img src="assets/img/rana-neon.png" class="reglas-rana" alt="Rana lista para jugar">
+    <div class="reglas-ayuda">SIGUIENTE: CAMBIAR FILA &nbsp; · &nbsp; ENTER: CAMBIAR OPCIÓN</div>
+</div>

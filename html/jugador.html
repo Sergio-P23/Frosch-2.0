@@ -1,22 +1,13 @@
-<div class="jugador">
-
-    <img class="avatar" ng-src="assets/img/{{jugador.activo && !jugador.terminoTurno?'activado':'desactivado'}}.png"/>
-
+<div class="jugador" ng-class="{activo: jugador.activo}">
+    <img class="avatar" ng-src="{{avatarJugador}}" alt="Jugador {{jugador.numero}}"/>
     <div class="datos" ng-class="{activo: jugador.activo}">
-
-        <div class="titulo">{{ (jugador.equipo?"EQUIPO":"JUGADOR") | translate}} {{jugador.numero}}</div>
-        <progress value="{{jugador.puntos}}" max="{{maximo}}"></progress>
-        <div class="blanqueadas">
-            <img ng-if="jugador.blanqueadas <= 6"
-                 ng-repeat="blanqueada in jugador.getBlanqueadasArray() track by $index"
-                 src="assets/img/blanqueada.png"/>
-
-            <div ng-if="jugador.blanqueadas > 6">
-                <img ng-if="jugador.blanqueadas > 6" src="assets/img/blanqueada.png"/> <span class="blanqueadasNumero">{{jugador.blanqueadas}}</span>
-            </div>
+        <div class="identidad-jugador">
+            <div class="titulo">{{ (jugador.equipo?"EQUIPO":"JUGADOR") | translate}} {{jugador.numero}}</div>
+            <div class="blancos-jugador">BLANCOS <strong>{{jugador.blanqueadas}}</strong></div>
         </div>
-        <div class="puntaje">{{jugador.puntos}}</div>
-        <span class="ronda pequeno" ng-if="jugador.equipo && jugador.activo">{{ jugador.codigoRonda()}}</span>
-
+        <div class="marcador-jugador" ng-class="{puntajeMedio: jugador.puntos >= 100 && jugador.puntos < 1000, puntajeLargo: jugador.puntos >= 1000}" aria-label="Puntaje {{jugador.puntos}}">
+            <span>PUNTOS</span>
+            <strong>{{jugador.puntos}}</strong>
+        </div>
     </div>
 </div>

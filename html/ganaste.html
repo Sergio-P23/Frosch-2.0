@@ -1,15 +1,15 @@
-<audio  ng-src="{{ 'ganaste.ogg' | translateAudio }}" autoplay="autoplay"></audio>
-<div class="view fondo-laguna font-cs ganaste">
-    <img src="assets/img/ranas-esquina.png" class="ranas-esquina"></span>
-
-    <div class="grande centrar">
-        {{(config.equipos?'EQUIPO_NUM':'JUGADOR_NUM') | translateReplace:{numero: jugador.numero} }}
-
+<audio ng-src="{{ 'ganaste.ogg' | translateAudio }}" autoplay="autoplay"></audio>
+<div class="view font-cs victoria-fiesta">
+    <div class="victoria-luces" aria-hidden="true"></div>
+    <div class="victoria-confeti" aria-hidden="true">
+        <i ng-repeat="pieza in confetiVictoria track by $index" ng-style="{'left': pieza.left + '%', 'animation-delay': '-' + pieza.delay + 's'}"></i>
     </div>
-    <div class="grande centrar colorContraste">{{"GANASTE" | translate}}
-
-    </div>
-
+    <div class="victoria-marco" aria-hidden="true"></div>
+    <section class="victoria-contenido">
+        <div class="victoria-insignia">★ &nbsp; {{"CAMPEON" | translate}} &nbsp; ★</div>
+        <div class="victoria-jugador" ng-if="jugador && jugador.numero">{{(config.equipos?'EQUIPO_NUM':'JUGADOR_NUM') | translateReplace:{numero: jugador.numero} }}</div>
+        <h1>{{"GANASTE" | translate}}</h1>
+        <div class="victoria-marcador" ng-if="jugador && jugador.puntos !== undefined"><strong>{{jugador.puntos}}</strong><span>{{"PUNTOS" | translate}}</span></div>
+    </section>
+    <img class="victoria-rana" src="assets/img/rana-victoria-fiesta.png" alt="Rana celebrando la victoria">
 </div>
-
-<audio src="assets/sounds/finjuego.ogg" preload="true" autoplay="true"></audio>

@@ -2,7 +2,7 @@ angular.module('Frosch')
     .controller('InicioCtrl', function ($scope, $state, hotkeys, config, $http, $interval) {
 
         $scope.iniciar = function () {
-            $state.go('jugar.seleccionEquipos');
+            $state.go('jugar.reglas');
         };
 
         hotkeys.bindTo($scope)
