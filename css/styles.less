@@ -1455,13 +1455,13 @@ button.inicio {
 .ruleta-tablero {
   position: absolute;
   z-index: 2;
-  left: 26.5vw;
-  top: 54vh;
+  left: 550px !important;
+  top: 601px !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 7vw;
-  height: 7vw;
+  width: 5.1vw;
+  height: 5.1vw;
   border: .45vw solid #f6d689;
   border-radius: 50%;
   color: #ffefb5;
@@ -1469,7 +1469,12 @@ button.inicio {
   box-shadow: 0 0 0 .18vw #5e351a, inset 0 0 .7vw #160c07, 0 0 1.1vw #ffc648;
   pointer-events: none;
   animation: ruletaTableroBrilla 2s ease-in-out infinite;
+
+  /* Aplica la inclinación sobre el eje X */
+  transform: rotateX(65deg);
+  transform-origin: center center;
 }
+
 .ruleta-tablero span { font-size: 1.7vw; text-shadow: 0 0 .55vw #ffc036; }
 @keyframes ruletaTableroBrilla {
   50% { box-shadow: 0 0 0 .18vw #5e351a, inset 0 0 .7vw #160c07, 0 0 2vw #ffc648; }
@@ -2189,8 +2194,8 @@ button.inicio {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5vw;
-  height: 2.5vw;
+  width: 1.5vw;
+  height: 1.5vw;
   border-radius: 50%;
   color: #fff7b8;
   background: rgba(4, 15, 48, .88);
@@ -2305,3 +2310,19 @@ button.inicio {
 .ruleta-giro .ruleta-rueda .disco-ruleta { box-shadow: 0 0 2.4vw #fff0ab, 0 0 5vw #ff66bd; }
 .ruleta-giro .ruleta-estado,
 .ruleta-giro .ruleta-premio { margin-top: 2vh; }
+
+/* Cifras centradas dentro de cada gajo de la ruleta. */
+.ruleta-giro .ruleta-sector {
+  width: 5vw;
+  font-size: clamp(22px, 2.2vw, 38px) !important;
+  line-height: 1;
+  text-align: center;
+}
+.ruleta-giro .sector-1 { top: 25%; left: 50%; right: auto; bottom: auto; transform: translate(-50%, -50%); }
+.ruleta-giro .sector-2 { top: 32%; right: 32%; left: auto; bottom: auto; transform: translate(50%, -50%); }
+.ruleta-giro .sector-3 { top: 50%; right: 25%; left: auto; bottom: auto; transform: translate(50%, -50%); }
+.ruleta-giro .sector-4 { top: auto; right: 32%; bottom: 32%; left: auto; transform: translate(50%, 50%); }
+.ruleta-giro .sector-5 { top: auto; left: 50%; right: auto; bottom: 25%; transform: translate(-50%, 50%); }
+.ruleta-giro .sector-6 { top: auto; left: 32%; bottom: 32%; right: auto; transform: translate(-50%, 50%); }
+.ruleta-giro .sector-7 { top: 50%; left: 25%; right: auto; bottom: auto; transform: translate(-50%, -50%); }
+.ruleta-giro .sector-8 { top: 32%; left: 32%; right: auto; bottom: auto; transform: translate(-50%, -50%); }
