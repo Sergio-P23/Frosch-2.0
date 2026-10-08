@@ -16,7 +16,7 @@
                 <button ng-repeat="objetivo in config.configuracion.tablero track by objetivo.id"
                         class="objetivo objetivo-{{objetivo.tipo}} objetivo-{{objetivo.variante}} objetivo-{{objetivo.id}}"
                         data-target="{{objetivo.id}}"
-                        ng-class="{activo: objetivoActivo === objetivo.id}"
+                        ng-class="{activo: objetivoActivo === objetivo.id, destello: objetivoDestello === objetivo.id}"
                         ng-click="sumarPuntos(objetivo.id)">
                     <span>{{objetivo.etiqueta}}</span>
                 </button>

@@ -1455,8 +1455,8 @@ button.inicio {
 .ruleta-tablero {
   position: absolute;
   z-index: 2;
-  left: 550px !important;
-  top: 601px !important;
+  left: 1080px !important;
+  top: 585px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2326,3 +2326,82 @@ button.inicio {
 .ruleta-giro .sector-6 { top: auto; left: 32%; bottom: 32%; right: auto; transform: translate(-50%, 50%); }
 .ruleta-giro .sector-7 { top: 50%; left: 25%; right: auto; bottom: auto; transform: translate(-50%, -50%); }
 .ruleta-giro .sector-8 { top: 32%; left: 32%; right: auto; bottom: auto; transform: translate(-50%, -50%); }
+
+/* Resplandor transparente sobre el arte original: no dibuja otro hoyo ni otro número. */
+.objetivo-1, .objetivo-2 { --hoyo-neon: #ff263d; }
+.objetivo-3, .objetivo-4, .objetivo-7, .objetivo-8 { --hoyo-neon: #16cfff; }
+.objetivo-5, .objetivo-6 { --hoyo-neon: #30ff54; }
+.objetivo-9, .objetivo-10 { --hoyo-neon: #ed31ff; }
+.objetivo-11, .objetivo-12 { --hoyo-neon: #ff263d; }
+.objetivo-13, .objetivo-14 { --hoyo-neon: #ffd22d; }
+.tablero-rana .objetivo-botella { width: 8.2vw; height: 7.2vh; border-radius: 50%; }
+.tablero-rana .objetivo {
+  z-index: 4;
+  //opacidad invisible
+  opacity: 1 !important;
+  border: 0 !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  background: radial-gradient(ellipse, transparent 43%, #fff 49%, var(--hoyo-neon) 55%, var(--hoyo-neon) 67%, transparent 79%) !important;
+  box-shadow: none !important;
+  filter: brightness(1.8) drop-shadow(0 0 .65vw #fff) drop-shadow(0 0 1.2vw var(--hoyo-neon)) drop-shadow(0 0 2vw var(--hoyo-neon));
+  mix-blend-mode: screen;
+  animation: none;
+}
+.tablero-rana .objetivo span { visibility: hidden; }
+.tablero-rana .objetivo.destello {
+  z-index: 5;
+  opacity: 1 !important;
+  border: 0 !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  background: radial-gradient(ellipse, transparent 43%, #fff 49%, var(--hoyo-neon) 55%, var(--hoyo-neon) 67%, transparent 79%) !important;
+  box-shadow: none !important;
+  filter: brightness(2) drop-shadow(0 0 .8vw #fff) drop-shadow(0 0 1.5vw var(--hoyo-neon)) drop-shadow(0 0 2.4vw var(--hoyo-neon));
+  mix-blend-mode: screen;
+  animation: hoyoNeonDestello .75s ease-out both;
+  pointer-events: none;
+}
+.tablero-rana .objetivo.destello span { visibility: hidden; }
+@keyframes hoyoNeonDestello {
+  0% { opacity: .25; }
+  35% { opacity: 1; }
+  100% { opacity: .35; }
+}
+
+/* La capa de los hoyos comparte exactamente la escala y el anclaje del arte. */
+.tablero-rana {
+  top: auto;
+  right: 1vw;
+  bottom: 2.5vh;
+  left: auto;
+  width: 138vh;
+  height: 92vh;
+}
+.tablero-rana .objetivo {
+  width: 9%;
+  height: 9%;
+  transform: translate(-50%, -50%);
+}
+//1500
+.tablero-rana .objetivo-1 { left: 57.8%; top: 60.4%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 11%; }
+.tablero-rana .objetivo-2 { left: 82.5%; top: 60.4%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 11%; }
+//50
+.tablero-rana .objetivo-3 { left: 62.9%; top: 63.1%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 15%; }
+.tablero-rana .objetivo-4 { left: 77.8%; top: 63.1%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 15%; }
+//20
+.tablero-rana .objetivo-5 { left: 57.3%; top: 69.4%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 15%; }
+.tablero-rana .objetivo-6 { left: 83%; top: 69.4%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 15%;}
+//40
+.tablero-rana .objetivo-7 { left: 62.3%; top: 76.3%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 15%; }
+.tablero-rana .objetivo-8 { left: 78.3%; top: 76.3%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 15%; }
+//20
+.tablero-rana .objetivo-9 { left: 56.8%; top: 81.4%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12.5%; height: 15.8%; }
+.tablero-rana .objetivo-10 { left: 83.1%; top: 81.4%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12.5%; height: 15.8%; }
+//100
+.tablero-rana .objetivo-11 { left: 62.5%; top: 86.9%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12.5%; height: 15.8%; }
+.tablero-rana .objetivo-12 { left: 77.4%; top: 86.9%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 12.5%; height: 15.8%; }
+//ruleta
+.tablero-rana .objetivo-13 { left: 71.2%; top: 59.3%; right: auto; bottom: auto; transform: rotateX(55deg) scaleY(1.2); width: 10%; height: 10%; }
+//rana200
+.tablero-rana .objetivo-14 { left: 70%; top: 71%; right: auto; bottom: auto; width: 9%; height: 9%; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 12.5%;}

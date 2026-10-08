@@ -28,6 +28,8 @@ angular.module('Frosch')
         var finTimer;
         var giroTimer;
         var anuncioTimer;
+        var destelloTimer;
+        var teclasHoyoPresionadas = {};
         var valoresRuleta = [20, 25, 40, 50, 100, 150, 200, 500];
 
         function anunciarTurno() {
@@ -45,7 +47,10 @@ angular.module('Frosch')
         function rotar(objetivo) {
             $timeout.cancel(revelarTimer);
             $timeout.cancel(limpiarTimer);
+            $timeout.cancel(destelloTimer);
             $scope.objetivoActivo = objetivo.id;
+            $scope.objetivoDestello = objetivo.id;
+            destelloTimer = $timeout(function () { $scope.objetivoDestello = null; }, 750);
             $scope.ruletaGirando = objetivo.variante === 'ruleta';
             $scope.ruletaRevelando = false;
             $scope.mostrarAnuncioTurno = false;
@@ -85,6 +90,10 @@ angular.module('Frosch')
             $timeout.cancel(finTimer);
             $timeout.cancel(giroTimer);
             $timeout.cancel(anuncioTimer);
+            $timeout.cancel(destelloTimer);
+            window.removeEventListener('keydown', teclaHoyoDown, true);
+            window.removeEventListener('keyup', teclaHoyoUp, true);
+            window.removeEventListener('blur', limpiarTeclasHoyo);
             giroAudio.stop();
             premioAudio.stop();
         });
@@ -144,21 +153,30 @@ angular.module('Frosch')
         };
 
 
-        // Hotkeys para los orificios
-        var sumarPuntosCk = function sumarPuntosCk(orificio) {
-            return function () {
-                return $scope.sumarPuntos(orificio);
-            }
-        };
-
         var hotkeysBound = hotkeys.bindTo($scope);
+        var hoyosPorTecla = {};
         angular.forEach(config.configuracion.tablero, function (orificio, indice) {
-            var numOrificio = indice + 1;
-            hotkeysBound.add({
-                combo: keymap['orificio' + numOrificio],
-                callback: sumarPuntosCk(numOrificio)
-            })
+            var tecla = keymap['orificio' + (indice + 1)];
+            if (tecla)
+                hoyosPorTecla[tecla === ' ' ? 'space' : tecla.toLowerCase()] = indice + 1;
         });
+
+        function limpiarTeclasHoyo() { teclasHoyoPresionadas = {}; }
+        function teclaHoyoDown(evento) {
+            var tecla = evento.key === ' ' || evento.code === 'Space' ? 'space' : (evento.key || '').toLowerCase();
+            var hoyo = hoyosPorTecla[tecla];
+            if (!hoyo || teclasHoyoPresionadas[tecla]) return;
+            teclasHoyoPresionadas[tecla] = true;
+            evento.preventDefault();
+            $scope.sumarPuntos(hoyo);
+        }
+        function teclaHoyoUp(evento) {
+            var tecla = evento.key === ' ' || evento.code === 'Space' ? 'space' : (evento.key || '').toLowerCase();
+            delete teclasHoyoPresionadas[tecla];
+        }
+        window.addEventListener('keydown', teclaHoyoDown, true);
+        window.addEventListener('keyup', teclaHoyoUp, true);
+        window.addEventListener('blur', limpiarTeclasHoyo);
 
         var cambiarTurnoCk = function cambiarTurnoCk(turno) {
             return function () {
