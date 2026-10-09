@@ -50,10 +50,26 @@
         </div>
 
         <section class="estado-partida">
-            <div><span>MEJOR CHICO</span><strong>{{config.puntos}} PUNTOS</strong></div>
-            <div><span>TURNO ACTIVO</span><strong>JUGADOR ACTUAL: {{chico.jugadorActual.numero}}</strong></div>
-            <div><span>FALTA PARA GANAR</span><strong>{{config.puntos - chico.jugadorActual.puntos}} PUNTOS</strong></div>
-            <div class="atajos-ranas"><span>R: RULETA &nbsp; · &nbsp; G: RANA 200</span></div>
+            <div class="estado-meta">
+                <div class="estado-dato">
+                    <span>MEJOR CHICO</span>
+                    <strong>{{config.puntos}} PUNTOS</strong>
+                </div>
+                <div class="estado-dato">
+                    <span>FALTA PARA GANAR</span>
+                    <strong>{{config.puntos - chico.jugadorActual.puntos}} PUNTOS</strong>
+                </div>
+                <div class="atajos-ranas"><span>R: RULETA &nbsp; · &nbsp; G: RANA 200</span></div>
+            </div>
+            <div class="orificios-restantes" role="img" aria-label="6 bolas pendientes de lanzar">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="estado-actual">
+                <span>TURNO ACTIVO</span>
+                <strong>JUGADOR ACTUAL: {{chico.jugadorActual.numero}}</strong>
+                <b class="puntaje-actual">{{chico.jugadorActual.puntos}}</b>
+                <small>PUNTOS</small>
+            </div>
         </section>
     </div>
 </ui-view>

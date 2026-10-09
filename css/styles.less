@@ -2406,3 +2406,120 @@ button.inicio {
 //rana200
 .tablero-rana .objetivo-14 { left: 70%; top: 71%; right: auto; bottom: auto; width: 9%; height: 9%; transform: rotateX(55deg) scaleY(1.2); width: 12%; height: 12.5%;}
 
+/* Rediseño limitado al tablero de estado de la esquina inferior izquierda. */
+.estado-partida {
+  left: 3.5vw;
+  right: 50.5vw;
+  bottom: 3.6vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  height: 22vh;
+  min-height: 22vh;
+  padding: 1.1vh .8vw .8vh;
+  box-sizing: border-box;
+  border: .12vw solid #48bce7;
+  border-top: .38vw solid #48bce7;
+  border-bottom: .3vw solid #de32cf;
+  border-radius: .45vw;
+  background: linear-gradient(115deg, rgba(3, 14, 37, .98), rgba(7, 25, 58, .96));
+  box-shadow: 0 .5vh 1.5vh rgba(0, 0, 0, .48), inset 0 0 1.2vw rgba(35, 164, 225, .12);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.estado-partida > div { min-width: 0; padding: .5vh .8vw; border: 0; box-sizing: border-box; }
+.estado-partida .estado-meta {
+  display: flex;
+  flex: 0 0 41%;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: .4vh .6vw;
+  border-right: .12vw solid rgba(72, 188, 231, .7);
+}
+.estado-partida .estado-dato { padding: .2vh .2vw; border: 0; text-align: left; }
+.estado-partida .estado-meta span,
+.estado-partida .estado-actual > span {
+  color: #ff7779;
+  font-size: 1vw;
+  font-weight: 800;
+  letter-spacing: .06vw;
+  line-height: 1.1;
+}
+.estado-partida .estado-meta strong {
+  margin-top: .4vh;
+  color: #f6f8ff;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1.5vw;
+  font-weight: 750;
+  line-height: 1.05;
+}
+.estado-partida .orificios-restantes {
+  display: flex;
+  flex: 0 0 12%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: .25vh;
+  padding: .4vh .2vw;
+  border-right: .12vw solid rgba(72, 188, 231, .55);
+}
+.estado-partida .orificios-restantes i {
+  display: block;
+  width: 1.55vw;
+  height: 1.55vw;
+  box-sizing: border-box;
+  border: .22vw solid #48c8ef;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 0 .55vw rgba(58, 205, 255, .42);
+}
+.estado-partida .atajos-ranas {
+  align-self: stretch;
+  margin-top: auto;
+  padding: .45vh .2vw 0;
+  border: 0;
+  border-top: .08vw solid rgba(72, 188, 231, .35);
+  text-align: left;
+}
+.estado-partida .atajos-ranas span {
+  color: #6be9bb;
+  font-size: .78vw;
+  font-weight: 700;
+  letter-spacing: .04vw;
+  text-shadow: 0 0 .35vw rgba(75, 244, 189, .32);
+}
+.estado-partida .estado-actual {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.estado-partida .estado-actual > span { color: #ff7779; }
+.estado-partida .estado-actual > strong {
+  margin-top: .5vh;
+  color: #f5f7ff;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1.2vw;
+  font-weight: 700;
+}
+.estado-partida .puntaje-actual {
+  margin-top: .2vh;
+  color: #fff;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 6vw;
+  font-weight: 800;
+  letter-spacing: -.1vw;
+  line-height: .95;
+  text-shadow: 0 .12vw .25vw rgba(0, 0, 0, .7);
+}
+.estado-partida div:last-child .puntaje-actual { color: #fff; text-shadow: 0 .12vw .25vw rgba(0, 0, 0, .7); }
+.estado-partida .estado-actual > small {
+  margin-top: .35vh;
+  color: #d7f354;
+  font-size: 1.15vw;
+  font-weight: 800;
+  letter-spacing: .08vw;
+}
