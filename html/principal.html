@@ -49,12 +49,18 @@
             </div>
         </div>
 
-                                <section class="estado-partida">
+        <section class="estado-partida">
             <div class="estado-meta">
                 <div class="decoracion-meta" aria-hidden="true">
                     <span class="punto-deco"></span>
                     <span class="punto-deco"></span>
+                    <span class="punto-deco"></span>
+                    <span class="aro-deco"></span>
+                    <span class="aro-deco"></span>
                     <span class="estrella-deco">★</span>
+                    <span class="aro-deco"></span>
+                    <span class="aro-deco"></span>
+                    <span class="punto-deco"></span>
                     <span class="punto-deco"></span>
                     <span class="punto-deco"></span>
                 </div>
@@ -62,7 +68,6 @@
                     <span class="titulo-mejores">MEJORES JUGADORES</span>
                     <div class="lista-mejores">
                         <div class="item-ranking" ng-repeat="j in getMejoresJugadores() track by j.numero">
-                            <span class="ranking-num">{{$index + 1}}1</span>
                             <span class="ranking-nombre">{{(j.equipo ? 'EQUIPO' : 'JUGADOR') | translate}} {{j.numero}}</span>
                         </div>
                     </div>
@@ -90,7 +95,8 @@
                     {{chico.jugadorActual.puntos}}
                 </div>
                 <div class="subtitulo-score-paganar">
-                    SCORE PAGANAR
+                    <span>SCORE</span>
+                    <span>PA' GANAR</span>
                 </div>
                 <div class="datos-inferiores-score">
                     <span class="valor-turno-actual">{{chico.jugadorActual.puntosTurno()}}</span>

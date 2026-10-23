@@ -2449,39 +2449,65 @@ button.inicio {
     .decoracion-meta {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      gap: .55vw;
+      justify-content: space-between;
       margin-bottom: .2vh;
-      padding-left: .2vw;
+      padding-left: 0;
+      width: 100%;
+      box-sizing: border-box;
 
       .punto-deco {
         display: inline-block;
-        width: .8vw;
-        height: .8vw;
+        flex: 0 0 .6vw;
+        width: .6vw;
+        height: .6vw;
+        margin: 0;
         border-radius: 50%;
-        border: .14vw solid #00d2ff;
-        background: transparent;
-        box-shadow: 0 0 .35vw rgba(0, 210, 255, .75);
+        border: 0;
+        background: #00d9ff;
+        box-shadow: 0 0 .45vw rgba(0, 210, 255, .95), 0 0 .8vw rgba(0, 160, 255, .55);
+      }
+
+      .aro-deco {
+        display: inline-block;
+        flex: 0 0 1.3vw;
+        width: 1.3vw;
+        height: 1.3vw;
+        margin: 0;
+        box-sizing: border-box;
+        border: .13vw solid #38dfff;
+        border-radius: 50%;
+        background: rgba(0, 20, 48, .72);
+        box-shadow: 0 0 .38vw rgba(0, 210, 255, .9), inset 0 0 .2vw rgba(0, 180, 255, .2);
       }
 
       .estrella-deco {
+        display: inline-block;
+        flex: 0 0 auto;
+        margin: 0;
         color: #facc15;
-        font-size: 1.55vw;
+        font-size: 1.8vw;
         line-height: 1;
-        text-shadow: 0 0 .5vw #fde047, 0 0 1vw #eab308;
+        text-shadow: 0 0 .25vw rgba(253, 224, 71, .8), 0 0 .55vw rgba(250, 204, 21, .5);
       }
     }
 
     .bloque-mejores {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 0;
+      max-height: 42%;
+      overflow: hidden;
 
       .titulo-mejores {
         color: #ea5858;
         font-size: 1.35vw;
         font-weight: 900;
         letter-spacing: .04vw;
-        text-shadow: 0 0 .4vw rgba(234, 88, 88, .5);
+        text-align: center;
+        white-space: nowrap;
+        text-shadow: .08vw 0 0 rgba(0, 0, 0, .82), -.08vw 0 0 rgba(0, 0, 0, .82), 0 .08vw 0 rgba(0, 0, 0, .82), 0 -.08vw 0 rgba(0, 0, 0, .82), 0 0 .28vw rgba(234, 88, 88, .62), 0 0 .65vw rgba(234, 88, 88, .3);
         margin-bottom: .3vh;
         line-height: 1.1;
       }
@@ -2490,27 +2516,21 @@ button.inicio {
         display: flex;
         flex-direction: column;
         gap: .2vh;
+        width: 100%;
 
         .item-ranking {
           display: flex;
-          align-items: baseline;
+          align-items: center;
+          justify-content: flex-start;
+          padding-left: .8vw;
           line-height: 1.15;
-
-          .ranking-num {
-            color: #4ade80;
-            font-size: 1.5vw;
-            font-weight: 900;
-            margin-right: .55vw;
-            text-shadow: 0 0 .4vw rgba(74, 222, 128, .6);
-            min-width: 1.7vw;
-          }
 
           .ranking-nombre {
             color: #ffffff;
             font-size: 1.45vw;
             font-weight: 900;
             letter-spacing: .03vw;
-            text-shadow: 0 .1vw .2vw rgba(0, 0, 0, .8);
+            text-shadow: .08vw 0 0 rgba(0, 0, 0, .9), -.08vw 0 0 rgba(0, 0, 0, .9), 0 .08vw 0 rgba(0, 0, 0, .9), 0 -.08vw 0 rgba(0, 0, 0, .9), .06vw .06vw 0 rgba(0, 0, 0, .75), 0 0 .16vw rgba(255, 255, 255, .22);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -2520,10 +2540,14 @@ button.inicio {
     }
 
     .divisor-meta {
-      width: 95%;
+      width: 94%;
       height: .32vw;
+      flex: 0 0 .32vw;
+      align-self: flex-start;
+      position: relative;
+      z-index: 1;
       background: #00d2b4;
-      box-shadow: 0 0 .5vw rgba(0, 210, 180, .75);
+      box-shadow: 0 0 .2vw rgba(0, 210, 180, .5);
       margin: .6vh 0;
     }
 
@@ -2537,7 +2561,7 @@ button.inicio {
         font-size: 1.4vw;
         font-weight: 900;
         letter-spacing: .04vw;
-        text-shadow: 0 0 .4vw rgba(234, 179, 8, .5);
+        text-shadow: .08vw 0 0 rgba(0, 0, 0, .85), -.08vw 0 0 rgba(0, 0, 0, .85), 0 .08vw 0 rgba(0, 0, 0, .85), 0 -.08vw 0 rgba(0, 0, 0, .85), 0 0 .32vw rgba(234, 179, 8, .65), 0 0 .75vw rgba(234, 179, 8, .3);
         line-height: 1.05;
       }
 
@@ -2547,7 +2571,7 @@ button.inicio {
         font-weight: 900;
         margin-top: .25vh;
         letter-spacing: .03vw;
-        text-shadow: 0 0 .4vw rgba(134, 239, 172, .4);
+        text-shadow: .08vw 0 0 rgba(0, 0, 0, .85), -.08vw 0 0 rgba(0, 0, 0, .85), 0 .08vw 0 rgba(0, 0, 0, .85), 0 -.08vw 0 rgba(0, 0, 0, .85), 0 0 .3vw rgba(134, 239, 172, .58), 0 0 .7vw rgba(134, 239, 172, .28);
       }
     }
 
@@ -2556,6 +2580,7 @@ button.inicio {
       flex-direction: column;
       line-height: 1.05;
       margin-top: .4vh;
+      align-self: flex-start;
 
       .titulo-blanqueada {
         color: #ffffff;
@@ -2563,7 +2588,7 @@ button.inicio {
         font-weight: 900;
         letter-spacing: .04vw;
         line-height: 1.05;
-        text-shadow: 0 .1vw .2vw rgba(0, 0, 0, .8);
+        text-shadow: .08vw 0 0 rgba(0, 0, 0, .9), -.08vw 0 0 rgba(0, 0, 0, .9), 0 .08vw 0 rgba(0, 0, 0, .9), 0 -.08vw 0 rgba(0, 0, 0, .9), .05vw .05vw .08vw rgba(0, 0, 0, .7), 0 0 .18vw rgba(255, 255, 255, .24);
       }
 
       .valor-blanqueada {
@@ -2572,7 +2597,7 @@ button.inicio {
         font-weight: 900;
         letter-spacing: .04vw;
         margin-top: .15vh;
-        text-shadow: 0 .1vw .2vw rgba(0, 0, 0, .8);
+        text-shadow: .08vw 0 0 rgba(0, 0, 0, .9), -.08vw 0 0 rgba(0, 0, 0, .9), 0 .08vw 0 rgba(0, 0, 0, .9), 0 -.08vw 0 rgba(0, 0, 0, .9), .05vw .05vw .08vw rgba(0, 0, 0, .7), 0 0 .18vw rgba(255, 255, 255, .24);
       }
     }
   }
@@ -2612,12 +2637,16 @@ button.inicio {
       }
 
       .balin-img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 134%;
+        height: 134%;
+        max-width: none;
+        max-height: none;
+        object-fit: contain;
         display: block;
-        transform: scale(1.08); /* Queda bien lleno dentro del aro */
+        transform: translate(-50%, -50%);
       }
     }
   }
@@ -2641,7 +2670,7 @@ button.inicio {
       font-size: 2.9vw;
       font-weight: 900;
       letter-spacing: .08vw;
-      text-shadow: 0 0 .6vw rgba(255, 74, 74, .7);
+      text-shadow: .09vw 0 0 rgba(0, 0, 0, .82), -.09vw 0 0 rgba(0, 0, 0, .82), 0 .09vw 0 rgba(0, 0, 0, .82), 0 -.09vw 0 rgba(0, 0, 0, .82), 0 0 .35vw rgba(255, 74, 74, .68), 0 0 .85vw rgba(255, 74, 74, .32);
       line-height: 1;
       margin-top: .1vh;
       text-transform: uppercase;
@@ -2653,18 +2682,36 @@ button.inicio {
       font-weight: 900;
       line-height: .86;
       letter-spacing: .02vw;
-      text-shadow: 0 0 .6vw #d946ef, 0 0 1.5vw #a855f7, 0 0 2.8vw #9333ea, 0 0 4.5vw #7e22ce, 0 .15vw .3vw rgba(0, 0, 0, .9);
+      text-shadow: .1vw 0 0 rgba(26, 8, 38, .9), -.1vw 0 0 rgba(26, 8, 38, .9), 0 .1vw 0 rgba(26, 8, 38, .9), 0 -.1vw 0 rgba(26, 8, 38, .9), 0 0 .42vw rgba(217, 70, 239, .62), 0 0 1vw rgba(168, 85, 247, .34), 0 .08vw .14vw rgba(0, 0, 0, .8);
       margin: .2vh 0;
     }
 
     .subtitulo-score-paganar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
       color: #facc15;
       font-size: 2.3vw;
       font-weight: 900;
       letter-spacing: .06vw;
-      text-shadow: 0 0 .8vw rgba(250, 204, 21, .85);
+      text-shadow: .08vw 0 0 rgba(0, 0, 0, .85), -.08vw 0 0 rgba(0, 0, 0, .85), 0 .08vw 0 rgba(0, 0, 0, .85), 0 -.08vw 0 rgba(0, 0, 0, .85), 0 0 .38vw rgba(250, 204, 21, .72), 0 0 .85vw rgba(250, 204, 21, .35);
       line-height: 1;
       margin-top: .1vh;
+      white-space: nowrap;
+
+      span {
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-shadow: inherit;
+      }
+
+      span + span {
+        margin-left: 1.1em;
+      }
     }
 
     .datos-inferiores-score {
@@ -2678,11 +2725,13 @@ button.inicio {
 
       .valor-turno-actual,
       .valor-falta-ganar {
+        flex: 1 1 50%;
         color: #ff4a4a;
         font-size: 2.8vw;
         font-weight: 900;
         letter-spacing: .04vw;
-        text-shadow: 0 0 .6vw rgba(255, 74, 74, .7);
+        text-shadow: .09vw 0 0 rgba(0, 0, 0, .82), -.09vw 0 0 rgba(0, 0, 0, .82), 0 .09vw 0 rgba(0, 0, 0, .82), 0 -.09vw 0 rgba(0, 0, 0, .82), 0 0 .35vw rgba(255, 74, 74, .68), 0 0 .85vw rgba(255, 74, 74, .32);
+        text-align: center;
       }
     }
 
