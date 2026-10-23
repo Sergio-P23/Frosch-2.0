@@ -16,6 +16,13 @@ angular.module('Frosch')
         $scope.jugadores = chico.getJugadores();
         $scope.config = config;
         $scope.chico = chico;
+
+        $scope.getMejoresJugadores = function () {
+            if (!$scope.jugadores || !$scope.jugadores.length) return [];
+            return $scope.jugadores.slice().sort(function (a, b) {
+                return (b.puntos || 0) - (a.puntos || 0);
+            }).slice(0, 3);
+        };
         $scope.confeti = [];
         for (var confeti = 0; confeti < 32; confeti++) {
             $scope.confeti.push({ left: (confeti * 37) % 96 + 2, delay: (confeti * 0.43) % 6 });
