@@ -49,7 +49,7 @@
             </div>
         </div>
 
-                <section class="estado-partida">
+                                <section class="estado-partida">
             <div class="estado-meta">
                 <div class="decoracion-meta" aria-hidden="true">
                     <span class="punto-deco"></span>
@@ -62,7 +62,7 @@
                     <span class="titulo-mejores">MEJORES JUGADORES</span>
                     <div class="lista-mejores">
                         <div class="item-ranking" ng-repeat="j in getMejoresJugadores() track by j.numero">
-                            <span class="ranking-num">{{$index + 1}}º</span>
+                            <span class="ranking-num">{{$index + 1}}1</span>
                             <span class="ranking-nombre">{{(j.equipo ? 'EQUIPO' : 'JUGADOR') | translate}} {{j.numero}}</span>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
             </div>
             <div class="orificios-restantes" role="img" aria-label="Bolas lanzadas y pendientes">
                 <div class="ranura-bola" ng-repeat="idx in [0, 1, 2, 3, 4, 5]" ng-class="{activa: chico.jugadorActual.ultimasArgollas[idx] != null}">
-                    <div class="bola-esfera" ng-if="chico.jugadorActual.ultimasArgollas[idx] != null"></div>
+                    <img class="balin-img" src="assets/img/balin-tablero.png" alt="Balín" ng-if="chico.jugadorActual.ultimasArgollas[idx] != null">
                 </div>
             </div>
             <div class="estado-actual">
@@ -96,6 +96,7 @@
                     <span class="valor-turno-actual">{{chico.jugadorActual.puntosTurno()}}</span>
                     <span class="valor-falta-ganar">{{config.puntos - chico.jugadorActual.puntos}}</span>
                 </div>
+                <div class="barra-neon-magenta" aria-hidden="true"></div>
             </div>
         </section>
     </div>

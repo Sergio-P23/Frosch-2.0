@@ -2411,33 +2411,36 @@ button.inicio {
   position: absolute;
   z-index: 8;
   left: 3.5vw;
-  right: 50.5vw;
+  width: 44.5vw;
   bottom: 2.2vh;
-  height: 26vh;
-  min-height: 26vh;
+  height: 33vh;
+  min-height: 33vh;
   display: flex;
   flex-direction: row;
   align-items: stretch;
   gap: 0;
   box-sizing: border-box;
   padding: 0;
-  background: linear-gradient(180deg, #050d24 0%, #030818 100%);
-  border: .18vw solid #22aae6;
-  border-bottom: .36vw solid #d946ef;
-  border-radius: .6vw;
-  box-shadow: 0 0 1vw rgba(34, 170, 230, .35), 0 .3vw 1vw rgba(217, 70, 239, .4), inset 0 0 1.5vw rgba(0, 0, 0, .85);
+  background: linear-gradient(180deg, #050d26 0%, #030718 100%);
+  border: .2vw solid #1ea5fc;
+  border-radius: .7vw;
+  box-shadow: 0 0 1vw rgba(30, 165, 252, .45), inset 0 0 1.8vw rgba(0, 0, 0, .85);
   overflow: hidden;
-  font-family: cs, "Segoe UI", Arial, sans-serif;
+  font-family: 'Impact', 'Arial Black', 'Trebuchet MS', 'Segoe UI', sans-serif !important;
+
+  * {
+    font-family: inherit;
+  }
 
   /* =========================================
      COLUMNA IZQUIERDA: MEJORES JUGADORES Y METAS
      ========================================= */
   .estado-meta {
-    flex: 0 0 35%;
+    flex: 0 0 37.5%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: .9vh .8vw .8vh 1vw;
+    padding: 1.1vh 1vw 1vh 1.2vw;
     box-sizing: border-box;
     min-width: 0;
     text-align: left;
@@ -2446,25 +2449,26 @@ button.inicio {
     .decoracion-meta {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: .45vw;
+      justify-content: flex-start;
+      gap: .55vw;
       margin-bottom: .2vh;
+      padding-left: .2vw;
 
       .punto-deco {
         display: inline-block;
-        width: .65vw;
-        height: .65vw;
+        width: .8vw;
+        height: .8vw;
         border-radius: 50%;
-        border: .12vw solid #2dd4bf;
+        border: .14vw solid #00d2ff;
         background: transparent;
-        box-shadow: 0 0 .3vw rgba(45, 212, 191, .6);
+        box-shadow: 0 0 .35vw rgba(0, 210, 255, .75);
       }
 
       .estrella-deco {
         color: #facc15;
-        font-size: 1.35vw;
+        font-size: 1.55vw;
         line-height: 1;
-        text-shadow: 0 0 .4vw #fde047, 0 0 .8vw #eab308;
+        text-shadow: 0 0 .5vw #fde047, 0 0 1vw #eab308;
       }
     }
 
@@ -2473,19 +2477,19 @@ button.inicio {
       flex-direction: column;
 
       .titulo-mejores {
-        color: #f87171;
-        font-size: 1.05vw;
+        color: #ea5858;
+        font-size: 1.35vw;
         font-weight: 900;
         letter-spacing: .04vw;
-        text-shadow: 0 0 .3vw rgba(248, 113, 113, .4);
-        margin-bottom: .2vh;
+        text-shadow: 0 0 .4vw rgba(234, 88, 88, .5);
+        margin-bottom: .3vh;
         line-height: 1.1;
       }
 
       .lista-mejores {
         display: flex;
         flex-direction: column;
-        gap: .15vh;
+        gap: .2vh;
 
         .item-ranking {
           display: flex;
@@ -2494,19 +2498,19 @@ button.inicio {
 
           .ranking-num {
             color: #4ade80;
-            font-size: 1.25vw;
+            font-size: 1.5vw;
             font-weight: 900;
-            margin-right: .45vw;
-            text-shadow: 0 0 .3vw rgba(74, 222, 128, .5);
-            min-width: 1.4vw;
+            margin-right: .55vw;
+            text-shadow: 0 0 .4vw rgba(74, 222, 128, .6);
+            min-width: 1.7vw;
           }
 
           .ranking-nombre {
             color: #ffffff;
-            font-size: 1.2vw;
-            font-weight: 800;
-            letter-spacing: .02vw;
-            text-shadow: 0 .08vw .15vw rgba(0, 0, 0, .8);
+            font-size: 1.45vw;
+            font-weight: 900;
+            letter-spacing: .03vw;
+            text-shadow: 0 .1vw .2vw rgba(0, 0, 0, .8);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -2516,11 +2520,11 @@ button.inicio {
     }
 
     .divisor-meta {
-      width: 100%;
-      height: .12vw;
-      background: #14b8a6;
-      box-shadow: 0 0 .3vw rgba(20, 184, 166, .5);
-      margin: .4vh 0;
+      width: 95%;
+      height: .32vw;
+      background: #00d2b4;
+      box-shadow: 0 0 .5vw rgba(0, 210, 180, .75);
+      margin: .6vh 0;
     }
 
     .bloque-puntos-ganar {
@@ -2530,20 +2534,20 @@ button.inicio {
 
       .titulo-puntos-ganar {
         color: #eab308;
-        font-size: 1.1vw;
+        font-size: 1.4vw;
         font-weight: 900;
-        letter-spacing: .03vw;
-        text-shadow: 0 0 .3vw rgba(234, 179, 8, .4);
+        letter-spacing: .04vw;
+        text-shadow: 0 0 .4vw rgba(234, 179, 8, .5);
         line-height: 1.05;
       }
 
       .valor-puntos-ganar {
         color: #86efac;
-        font-size: 1.3vw;
-        font-weight: 800;
-        margin-top: .2vh;
-        letter-spacing: .02vw;
-        text-shadow: 0 0 .3vw rgba(134, 239, 172, .3);
+        font-size: 1.55vw;
+        font-weight: 900;
+        margin-top: .25vh;
+        letter-spacing: .03vw;
+        text-shadow: 0 0 .4vw rgba(134, 239, 172, .4);
       }
     }
 
@@ -2551,80 +2555,69 @@ button.inicio {
       display: flex;
       flex-direction: column;
       line-height: 1.05;
-      margin-top: .2vh;
+      margin-top: .4vh;
 
       .titulo-blanqueada {
         color: #ffffff;
-        font-size: 1.15vw;
+        font-size: 1.45vw;
         font-weight: 900;
-        letter-spacing: .03vw;
+        letter-spacing: .04vw;
         line-height: 1.05;
+        text-shadow: 0 .1vw .2vw rgba(0, 0, 0, .8);
       }
 
       .valor-blanqueada {
         color: #ffffff;
-        font-size: 1.2vw;
+        font-size: 1.5vw;
         font-weight: 900;
-        letter-spacing: .03vw;
+        letter-spacing: .04vw;
         margin-top: .15vh;
+        text-shadow: 0 .1vw .2vw rgba(0, 0, 0, .8);
       }
     }
   }
 
   /* =========================================
-     COLUMNA CENTRAL: 6 RANURAS Y BOLAS METÁLICAS
+     COLUMNA CENTRAL: 6 RANURAS Y BALINES LLENOS
      ========================================= */
   .orificios-restantes {
-    flex: 0 0 11.5%;
+    flex: 0 0 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding: .6vh .2vw;
+    padding: .8vh .2vw;
     box-sizing: border-box;
-    border-left: .12vw solid #22aae6;
-    border-right: .12vw solid #22aae6;
-    background: rgba(3, 9, 24, .65);
+    border-left: .18vw solid #945a6d;
+    border-right: 0;
+    background: transparent;
 
     .ranura-bola {
-      width: 2.25vw;
-      height: 2.25vw;
+      width: 2.7vw;
+      height: 2.7vw;
       border-radius: 50%;
-      border: .2vw solid #22aae6;
+      border: .22vw solid #00d2ff;
       box-sizing: border-box;
-      background: transparent;
-      box-shadow: 0 0 .4vw rgba(34, 170, 230, .6), inset 0 0 .25vw rgba(34, 170, 230, .3);
+      background: rgba(3, 9, 24, .6);
+      box-shadow: 0 0 .5vw rgba(0, 210, 255, .75), inset 0 0 .3vw rgba(0, 210, 255, .3);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      overflow: hidden;
 
       &.activa {
-        border-color: #55c8ff;
-        box-shadow: 0 0 .5vw rgba(85, 200, 255, .7);
+        border-color: #00d2ff;
+        box-shadow: 0 0 .7vw rgba(0, 210, 255, .9);
       }
 
-      .bola-esfera {
+      .balin-img {
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        box-sizing: border-box;
-        background: radial-gradient(circle at 35% 28%, #ffffff 0%, #cbd5e1 22%, #64748b 52%, #1e293b 82%, #0f172a 100%);
-        box-shadow: inset -0.12vw -0.12vw .25vw rgba(0, 0, 0, .85), inset .08vw .08vw .15vw rgba(255, 255, 255, .95), 0 0 .4vw rgba(34, 170, 230, .45);
-        position: relative;
-        overflow: hidden;
-
-        &:after {
-          content: '';
-          position: absolute;
-          top: 14%;
-          left: 22%;
-          width: 36%;
-          height: 24%;
-          border-radius: 50%;
-          background: radial-gradient(ellipse at center, rgba(255, 255, 255, .95) 0%, rgba(255, 255, 255, 0) 75%);
-          transform: rotate(-25deg);
-        }
+        object-fit: cover;
+        display: block;
+        transform: scale(1.08); /* Queda bien lleno dentro del aro */
       }
     }
   }
@@ -2638,37 +2631,38 @@ button.inicio {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: .7vh 1vw .5vh;
+    padding: .9vh 1.2vw .4vh;
     box-sizing: border-box;
     text-align: center;
     min-width: 0;
 
     .titulo-jugador-actual {
-      color: #ff5252;
-      font-size: 2.6vw;
+      color: #ff4a4a;
+      font-size: 2.9vw;
       font-weight: 900;
       letter-spacing: .08vw;
-      text-shadow: 0 0 .7vw rgba(255, 82, 82, .65);
+      text-shadow: 0 0 .6vw rgba(255, 74, 74, .7);
       line-height: 1;
       margin-top: .1vh;
+      text-transform: uppercase;
     }
 
     .puntaje-gigante {
       color: #ffffff;
-      font-size: 7.2vw;
+      font-size: 7.8vw;
       font-weight: 900;
       line-height: .86;
-      letter-spacing: -.12vw;
-      text-shadow: 0 0 .8vw #c084fc, 0 0 1.8vw #9333ea, 0 0 3.2vw #7e22ce, 0 .15vw .3vw rgba(0, 0, 0, .9);
+      letter-spacing: .02vw;
+      text-shadow: 0 0 .6vw #d946ef, 0 0 1.5vw #a855f7, 0 0 2.8vw #9333ea, 0 0 4.5vw #7e22ce, 0 .15vw .3vw rgba(0, 0, 0, .9);
       margin: .2vh 0;
     }
 
     .subtitulo-score-paganar {
       color: #facc15;
-      font-size: 2vw;
+      font-size: 2.3vw;
       font-weight: 900;
       letter-spacing: .06vw;
-      text-shadow: 0 0 .6vw rgba(250, 204, 21, .65);
+      text-shadow: 0 0 .8vw rgba(250, 204, 21, .85);
       line-height: 1;
       margin-top: .1vh;
     }
@@ -2677,19 +2671,28 @@ button.inicio {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 84%;
+      width: 82%;
       padding: 0 .4vw;
       box-sizing: border-box;
       line-height: 1;
 
       .valor-turno-actual,
       .valor-falta-ganar {
-        color: #ff5252;
-        font-size: 2.4vw;
+        color: #ff4a4a;
+        font-size: 2.8vw;
         font-weight: 900;
         letter-spacing: .04vw;
-        text-shadow: 0 0 .55vw rgba(255, 82, 82, .6);
+        text-shadow: 0 0 .6vw rgba(255, 74, 74, .7);
       }
+    }
+
+    .barra-neon-magenta {
+      width: 95%;
+      height: .42vw;
+      background: #d946ef;
+      border-radius: .2vw;
+      box-shadow: 0 0 .7vw #d946ef, 0 0 1.2vw rgba(217, 70, 239, .8);
+      margin-top: .3vh;
     }
   }
 }
